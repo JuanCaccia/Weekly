@@ -8,7 +8,7 @@ Most task managers overwhelm you with endless backlogs, projects, and priorities
 
 > *Plan your week on Sunday. Execute. Reflect. Repeat.*
 
-Each week you get a clean slate with **7 days** and a **focus area** for the week. You drag tasks into days, check them off as you go, and start fresh next week. No clutter, no overdue piles — just a simple rhythm.
+Each week you get a clean slate with **7 days** and a **focus area** for the week. You add tasks to any day, check them off as you go, and start fresh next week. No clutter, no overdue piles — just a simple rhythm.
 
 ## Features
 
