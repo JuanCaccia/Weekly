@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Mode Palette -->
+    <color name="md_theme_light_primary">#BFA8E6</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_background">#F8F9FA</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+
+    <!-- Dark Mode Palette (Deep Night) -->
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+    <color name="md_theme_dark_background">#121212</color>
+    <color name="md_theme_dark_surface">#252525</color> <!-- Elevación sutil sobre #121212 -->
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+    <color name="md_theme_dark_onSurfaceVariant">#CAC4D0</color>
+
+    <!-- Colors for Dialogs/Popups (Matching Activity Creation) -->
+    <color name="dialog_background_light">#F5F2F8</color>
+    <color name="dialog_background_dark">#1C1A24</color>
+
+    <!-- Original Colors (kept for compatibility) -->
+    <color name="primary">#BFA8E6</color>
+    <color name="primary_variant">#8E79C9</color>
+    <color name="background_light">#F5F2F8</color>
+    <color name="background_dark">#1C1A24</color>
+    <color name="text_primary_light">#1C1B1F</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Priorities Light -->
+    <color name="priority_low">#C8E6C9</color>
+    <color name="priority_medium">#FFE0B2</color>
+    <color name="priority_high">#FFCDD2</color>
+
+    <!-- Priorities Dark (Saturación reducida para modo noche) -->
+    <color name="priority_low_dark">#A5BDA6</color>
+    <color name="priority_medium_dark">#D1B892</color>
+    <color name="priority_high_dark">#D1A7AA</color>
+
+    <!-- Category Palette -->
+    <color name="cat_violet">#BFA8E6</color>
+    <color name="cat_lavender">#D6C6F2</color>
+    <color name="cat_blue">#AFCBFF</color>
+    <color name="cat_cyan">#AEE3E1</color>
+    <color name="cat_mint">#BFE7C6</color>
+    <color name="cat_green">#9ED9B3</color>
+    <color name="cat_yellow">#F6E6A8</color>
+    <color name="cat_orange">#F5C6A5</color>
+    <color name="cat_pink">#F2B6CF</color>
+    <color name="cat_rose">#E6A4A4</color>
+</resources>

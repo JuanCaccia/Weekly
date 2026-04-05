@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Priorities Dark (Saturación reducida y brillo ajustado para fondo oscuro) -->
+    <color name="priority_low">#2E4D31</color>
+    <color name="priority_medium">#5C4524</color>
+    <color name="priority_high">#5C2E31</color>
+</resources>

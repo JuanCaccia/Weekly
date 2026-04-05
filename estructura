@@ -1,0 +1,1555 @@
+.
+├── agent.md
+├── app
+│   ├── agent.md
+│   ├── build
+│   │   ├── generated
+│   │   │   ├── ap_generated_sources
+│   │   │   │   └── debug
+│   │   │   │       └── out
+│   │   │   │           ├── com
+│   │   │   │           │   └── example
+│   │   │   │           │       └── weekly
+│   │   │   │           │           ├── data
+│   │   │   │           │           │   └── local
+│   │   │   │           │           │       ├── AppDatabase_Impl.java
+│   │   │   │           │           │       └── dao
+│   │   │   │           │           │           ├── CategoryDao_Impl.java
+│   │   │   │           │           │           ├── EventDao_Impl.java
+│   │   │   │           │           │           └── TaskDao_Impl.java
+│   │   │   │           │           ├── di
+│   │   │   │           │           │   ├── DataModule_ProvideCategoryDaoFactory.java
+│   │   │   │           │           │   ├── DataModule_ProvideDatabaseFactory.java
+│   │   │   │           │           │   ├── DataModule_ProvideEventDaoFactory.java
+│   │   │   │           │           │   ├── DataModule_ProvideEventRepositoryFactory.java
+│   │   │   │           │           │   ├── DataModule_ProvideHeatmapServiceFactory.java
+│   │   │   │           │           │   ├── DataModule_ProvideTaskDaoFactory.java
+│   │   │   │           │           │   └── DataModule_ProvideTaskRepositoryFactory.java
+│   │   │   │           │           ├── Hilt_MainActivity.java
+│   │   │   │           │           ├── MainActivity_GeneratedInjector.java
+│   │   │   │           │           ├── ui
+│   │   │   │           │           │   ├── usecases
+│   │   │   │           │           │   │   └── ProjectWeekUseCase_Factory.java
+│   │   │   │           │           │   └── viewmodels
+│   │   │   │           │           │       ├── MainViewModel_Factory.java
+│   │   │   │           │           │       ├── MainViewModel_HiltModules.java
+│   │   │   │           │           │       └── MainViewModel_HiltModules_KeyModule_ProvideFactory.java
+│   │   │   │           │           └── WeeklyApplication_GeneratedInjector.java
+│   │   │   │           ├── dagger
+│   │   │   │           │   └── hilt
+│   │   │   │           │       └── internal
+│   │   │   │           │           └── aggregatedroot
+│   │   │   │           │               └── codegen
+│   │   │   │           │                   └── _com_example_weekly_WeeklyApplication.java
+│   │   │   │           └── hilt_aggregated_deps
+│   │   │   │               ├── _com_example_weekly_di_DataModule.java
+│   │   │   │               ├── _com_example_weekly_MainActivity_GeneratedInjector.java
+│   │   │   │               ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_BindsModule.java
+│   │   │   │               ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_KeyModule.java
+│   │   │   │               └── _com_example_weekly_WeeklyApplication_GeneratedInjector.java
+│   │   │   ├── hilt
+│   │   │   │   ├── component_sources
+│   │   │   │   │   └── debug
+│   │   │   │   │       ├── com
+│   │   │   │   │       │   └── example
+│   │   │   │   │       │       └── weekly
+│   │   │   │   │       │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC.java
+│   │   │   │   │       │           ├── Hilt_WeeklyApplication.java
+│   │   │   │   │       │           ├── WeeklyApplication_GeneratedInjector.java
+│   │   │   │   │       │           └── WeeklyApplication_HiltComponents.java
+│   │   │   │   │       ├── dagger
+│   │   │   │   │       │   └── hilt
+│   │   │   │   │       │       └── internal
+│   │   │   │   │       │           └── aggregatedroot
+│   │   │   │   │       │               └── codegen
+│   │   │   │   │       │                   └── _com_example_weekly_WeeklyApplication.java
+│   │   │   │   │       └── hilt_aggregated_deps
+│   │   │   │   │           └── _com_example_weekly_WeeklyApplication_GeneratedInjector.java
+│   │   │   │   └── component_trees
+│   │   │   │       └── debug
+│   │   │   │           ├── com
+│   │   │   │           │   └── example
+│   │   │   │           │       └── weekly
+│   │   │   │           │           └── WeeklyApplication_ComponentTreeDeps.java
+│   │   │   │           └── dagger
+│   │   │   │               └── hilt
+│   │   │   │                   └── internal
+│   │   │   │                       └── processedrootsentinel
+│   │   │   │                           └── codegen
+│   │   │   │                               └── _com_example_weekly_WeeklyApplication.java
+│   │   │   └── res
+│   │   │       ├── pngs
+│   │   │       │   └── debug
+│   │   │       └── resValues
+│   │   │           └── debug
+│   │   ├── intermediates
+│   │   │   ├── aar_metadata_check
+│   │   │   │   └── debug
+│   │   │   │       └── checkDebugAarMetadata
+│   │   │   ├── annotation_processor_list
+│   │   │   │   └── debug
+│   │   │   │       └── javaPreCompileDebug
+│   │   │   │           └── annotationProcessors.json
+│   │   │   ├── apk
+│   │   │   │   └── debug
+│   │   │   │       ├── app-debug.apk
+│   │   │   │       └── output-metadata.json
+│   │   │   ├── apk_ide_redirect_file
+│   │   │   │   └── debug
+│   │   │   │       └── createDebugApkListingFileRedirect
+│   │   │   │           └── redirect.txt
+│   │   │   ├── app_metadata
+│   │   │   │   └── debug
+│   │   │   │       └── writeDebugAppMetadata
+│   │   │   │           └── app-metadata.properties
+│   │   │   ├── assets
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugAssets
+│   │   │   ├── classes
+│   │   │   │   └── debug
+│   │   │   │       └── transformDebugClassesWithAsm
+│   │   │   │           ├── dirs
+│   │   │   │           │   ├── com
+│   │   │   │           │   │   └── example
+│   │   │   │           │   │       └── weekly
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl$LazyClassKeyProvider.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl$SwitchingProvider.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$Builder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl$SwitchingProvider.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$LazyClassKeyProvider.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$SwitchingProvider.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCBuilder.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCImpl.class
+│   │   │   │           │   │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC.class
+│   │   │   │           │   │           ├── data
+│   │   │   │           │   │           │   ├── local
+│   │   │   │           │   │           │   │   ├── AppDatabase$1.class
+│   │   │   │           │   │           │   │   ├── AppDatabase.class
+│   │   │   │           │   │           │   │   ├── AppDatabase_Impl$1.class
+│   │   │   │           │   │           │   │   ├── AppDatabase_Impl.class
+│   │   │   │           │   │           │   │   ├── Converters.class
+│   │   │   │           │   │           │   │   ├── dao
+│   │   │   │           │   │           │   │   │   ├── CategoryDao.class
+│   │   │   │           │   │           │   │   │   ├── CategoryDao_Impl$1.class
+│   │   │   │           │   │           │   │   │   ├── CategoryDao_Impl.class
+│   │   │   │           │   │           │   │   │   ├── EventDao.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl$1.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl$2.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl$3.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl$4.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl$5.class
+│   │   │   │           │   │           │   │   │   ├── EventDao_Impl.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao_Impl$1.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao_Impl$2.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao_Impl$3.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao_Impl$4.class
+│   │   │   │           │   │           │   │   │   ├── TaskDao_Impl$5.class
+│   │   │   │           │   │           │   │   │   └── TaskDao_Impl.class
+│   │   │   │           │   │           │   │   └── entities
+│   │   │   │           │   │           │   │       ├── CategoryEntity.class
+│   │   │   │           │   │           │   │       ├── EventEntity.class
+│   │   │   │           │   │           │   │       └── TaskEntity.class
+│   │   │   │           │   │           │   ├── mappers
+│   │   │   │           │   │           │   │   ├── EventMapper.class
+│   │   │   │           │   │           │   │   └── TaskMapper.class
+│   │   │   │           │   │           │   └── repositories
+│   │   │   │           │   │           │       ├── RoomEventRepository.class
+│   │   │   │           │   │           │       └── RoomTaskRepository.class
+│   │   │   │           │   │           ├── di
+│   │   │   │           │   │           │   ├── DataModule.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideCategoryDaoFactory.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideDatabaseFactory.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideEventDaoFactory.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideEventRepositoryFactory.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideHeatmapServiceFactory$InstanceHolder.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideHeatmapServiceFactory.class
+│   │   │   │           │   │           │   ├── DataModule_ProvideTaskDaoFactory.class
+│   │   │   │           │   │           │   └── DataModule_ProvideTaskRepositoryFactory.class
+│   │   │   │           │   │           ├── Hilt_MainActivity$1.class
+│   │   │   │           │   │           ├── Hilt_MainActivity.class
+│   │   │   │           │   │           ├── Hilt_WeeklyApplication$1.class
+│   │   │   │           │   │           ├── Hilt_WeeklyApplication.class
+│   │   │   │           │   │           ├── MainActivity.class
+│   │   │   │           │   │           ├── MainActivity_GeneratedInjector.class
+│   │   │   │           │   │           ├── ui
+│   │   │   │           │   │           │   ├── adapters
+│   │   │   │           │   │           │   │   ├── CategoryAdapter$CategoryViewHolder.class
+│   │   │   │           │   │           │   │   ├── CategoryAdapter$OnCategorySelectedListener.class
+│   │   │   │           │   │           │   │   ├── CategoryAdapter.class
+│   │   │   │           │   │           │   │   ├── DayAdapter$1.class
+│   │   │   │           │   │           │   │   ├── DayAdapter$DayPlanDiffCallback.class
+│   │   │   │           │   │           │   │   ├── DayAdapter$DayViewHolder$ClickGuard.class
+│   │   │   │           │   │           │   │   ├── DayAdapter$DayViewHolder.class
+│   │   │   │           │   │           │   │   ├── DayAdapter$OnDayPlanInteractionListener.class
+│   │   │   │           │   │           │   │   ├── DayAdapter.class
+│   │   │   │           │   │           │   │   ├── TaskAdapter$1.class
+│   │   │   │           │   │           │   │   ├── TaskAdapter$OnTaskInteractionListener.class
+│   │   │   │           │   │           │   │   ├── TaskAdapter$TaskDiffCallback.class
+│   │   │   │           │   │           │   │   ├── TaskAdapter$TaskViewHolder.class
+│   │   │   │           │   │           │   │   └── TaskAdapter.class
+│   │   │   │           │   │           │   ├── dialogs
+│   │   │   │           │   │           │   │   ├── AddTaskDialogFragment$1.class
+│   │   │   │           │   │           │   │   └── AddTaskDialogFragment.class
+│   │   │   │           │   │           │   ├── models
+│   │   │   │           │   │           │   │   └── DayPlan.class
+│   │   │   │           │   │           │   ├── usecases
+│   │   │   │           │   │           │   │   ├── ProjectWeekUseCase.class
+│   │   │   │           │   │           │   │   └── ProjectWeekUseCase_Factory.class
+│   │   │   │           │   │           │   ├── utils
+│   │   │   │           │   │           │   │   └── TimelineMapper.class
+│   │   │   │           │   │           │   ├── viewmodels
+│   │   │   │           │   │           │   │   ├── MainViewModel.class
+│   │   │   │           │   │           │   │   ├── MainViewModel_Factory.class
+│   │   │   │           │   │           │   │   ├── MainViewModel_HiltModules$BindsModule.class
+│   │   │   │           │   │           │   │   ├── MainViewModel_HiltModules$KeyModule.class
+│   │   │   │           │   │           │   │   ├── MainViewModel_HiltModules.class
+│   │   │   │           │   │           │   │   ├── MainViewModel_HiltModules_KeyModule_ProvideFactory$InstanceHolder.class
+│   │   │   │           │   │           │   │   └── MainViewModel_HiltModules_KeyModule_ProvideFactory.class
+│   │   │   │           │   │           │   └── views
+│   │   │   │           │   │           │       ├── TimelineBackgroundView$1.class
+│   │   │   │           │   │           │       └── TimelineBackgroundView.class
+│   │   │   │           │   │           ├── WeeklyApplication.class
+│   │   │   │           │   │           ├── WeeklyApplication_ComponentTreeDeps.class
+│   │   │   │           │   │           ├── WeeklyApplication_GeneratedInjector.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityRetainedCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$FragmentC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$FragmentCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$FragmentC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ServiceC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ServiceCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ServiceC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$SingletonC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewModelC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewModelCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewModelC.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC$Builder.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentCBuilderModule.class
+│   │   │   │           │   │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC.class
+│   │   │   │           │   │           └── WeeklyApplication_HiltComponents.class
+│   │   │   │           │   ├── dagger
+│   │   │   │           │   │   └── hilt
+│   │   │   │           │   │       └── internal
+│   │   │   │           │   │           ├── aggregatedroot
+│   │   │   │           │   │           │   └── codegen
+│   │   │   │           │   │           │       └── _com_example_weekly_WeeklyApplication.class
+│   │   │   │           │   │           └── processedrootsentinel
+│   │   │   │           │   │               └── codegen
+│   │   │   │           │   │                   └── _com_example_weekly_WeeklyApplication.class
+│   │   │   │           │   └── hilt_aggregated_deps
+│   │   │   │           │       ├── _com_example_weekly_di_DataModule.class
+│   │   │   │           │       ├── _com_example_weekly_MainActivity_GeneratedInjector.class
+│   │   │   │           │       ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_BindsModule.class
+│   │   │   │           │       ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_KeyModule.class
+│   │   │   │           │       └── _com_example_weekly_WeeklyApplication_GeneratedInjector.class
+│   │   │   │           └── jars
+│   │   │   │               └── 0.jar
+│   │   │   ├── compatible_screen_manifest
+│   │   │   │   └── debug
+│   │   │   │       └── createDebugCompatibleScreenManifests
+│   │   │   │           └── output-metadata.json
+│   │   │   ├── compile_and_runtime_not_namespaced_r_class_jar
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugResources
+│   │   │   │           └── R.jar
+│   │   │   ├── compressed_assets
+│   │   │   │   └── debug
+│   │   │   │       └── compressDebugAssets
+│   │   │   │           └── out
+│   │   │   ├── data_binding_layout_info_type_merge
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugResources
+│   │   │   │           └── out
+│   │   │   ├── data_binding_layout_info_type_package
+│   │   │   │   └── debug
+│   │   │   │       └── packageDebugResources
+│   │   │   │           └── out
+│   │   │   ├── desugar_graph
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   │               ├── currentProject
+│   │   │   │               │   ├── dirs_bucket_0
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── dirs_bucket_1
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── dirs_bucket_2
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── dirs_bucket_3
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── jar_66dd48fe06f9572a9c10584b1aee140bf4a06faec56abe55ac21e2b085150d63_bucket_0
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── jar_66dd48fe06f9572a9c10584b1aee140bf4a06faec56abe55ac21e2b085150d63_bucket_1
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   ├── jar_66dd48fe06f9572a9c10584b1aee140bf4a06faec56abe55ac21e2b085150d63_bucket_2
+│   │   │   │               │   │   └── graph.bin
+│   │   │   │               │   └── jar_66dd48fe06f9572a9c10584b1aee140bf4a06faec56abe55ac21e2b085150d63_bucket_3
+│   │   │   │               │       └── graph.bin
+│   │   │   │               ├── externalLibs
+│   │   │   │               ├── mixedScopes
+│   │   │   │               └── otherProjects
+│   │   │   ├── desugar_lib_dex
+│   │   │   │   └── debug
+│   │   │   │       └── l8DexDesugarLibDebug
+│   │   │   │           └── classes1000.dex
+│   │   │   ├── dex
+│   │   │   │   └── debug
+│   │   │   │       ├── mergeExtDexDebug
+│   │   │   │       │   └── classes.dex
+│   │   │   │       ├── mergeLibDexDebug
+│   │   │   │       │   ├── 0
+│   │   │   │       │   ├── 1
+│   │   │   │       │   ├── 10
+│   │   │   │       │   ├── 11
+│   │   │   │       │   ├── 12
+│   │   │   │       │   ├── 13
+│   │   │   │       │   ├── 14
+│   │   │   │       │   ├── 15
+│   │   │   │       │   ├── 2
+│   │   │   │       │   ├── 3
+│   │   │   │       │   ├── 4
+│   │   │   │       │   ├── 5
+│   │   │   │       │   ├── 6
+│   │   │   │       │   ├── 7
+│   │   │   │       │   │   └── classes.dex
+│   │   │   │       │   ├── 8
+│   │   │   │       │   └── 9
+│   │   │   │       └── mergeProjectDexDebug
+│   │   │   │           ├── 0
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 1
+│   │   │   │           ├── 10
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 11
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 12
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 13
+│   │   │   │           ├── 14
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 15
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 2
+│   │   │   │           ├── 3
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 4
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 5
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 6
+│   │   │   │           ├── 7
+│   │   │   │           │   └── classes.dex
+│   │   │   │           ├── 8
+│   │   │   │           │   └── classes.dex
+│   │   │   │           └── 9
+│   │   │   ├── dex_archive_input_jar_hashes
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── dex_number_of_buckets_file
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── duplicate_classes_check
+│   │   │   │   └── debug
+│   │   │   │       └── checkDebugDuplicateClasses
+│   │   │   ├── external_file_lib_dex_archives
+│   │   │   │   └── debug
+│   │   │   │       └── desugarDebugFileDependencies
+│   │   │   ├── external_libs_dex_archive
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── external_libs_dex_archive_with_artifact_transforms
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── hilt
+│   │   │   │   └── component_classes
+│   │   │   │       └── debug
+│   │   │   │           ├── com
+│   │   │   │           │   └── example
+│   │   │   │           │       └── weekly
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl$LazyClassKeyProvider.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl$SwitchingProvider.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$Builder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl$SwitchingProvider.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$LazyClassKeyProvider.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$SwitchingProvider.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCBuilder.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCImpl.class
+│   │   │   │           │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC.class
+│   │   │   │           │           ├── Hilt_WeeklyApplication$1.class
+│   │   │   │           │           ├── Hilt_WeeklyApplication.class
+│   │   │   │           │           ├── WeeklyApplication_ComponentTreeDeps.class
+│   │   │   │           │           ├── WeeklyApplication_GeneratedInjector.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityRetainedCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$FragmentC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$FragmentCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$FragmentC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ServiceC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ServiceCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ServiceC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$SingletonC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewModelC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewModelCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewModelC.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC$Builder.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentCBuilderModule.class
+│   │   │   │           │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC.class
+│   │   │   │           │           └── WeeklyApplication_HiltComponents.class
+│   │   │   │           ├── dagger
+│   │   │   │           │   └── hilt
+│   │   │   │           │       └── internal
+│   │   │   │           │           ├── aggregatedroot
+│   │   │   │           │           │   └── codegen
+│   │   │   │           │           │       └── _com_example_weekly_WeeklyApplication.class
+│   │   │   │           │           └── processedrootsentinel
+│   │   │   │           │               └── codegen
+│   │   │   │           │                   └── _com_example_weekly_WeeklyApplication.class
+│   │   │   │           └── hilt_aggregated_deps
+│   │   │   │               └── _com_example_weekly_WeeklyApplication_GeneratedInjector.class
+│   │   │   ├── incremental
+│   │   │   │   ├── debug
+│   │   │   │   │   ├── mergeDebugResources
+│   │   │   │   │   │   ├── compile-file-map.properties
+│   │   │   │   │   │   ├── merged.dir
+│   │   │   │   │   │   │   └── values
+│   │   │   │   │   │   │       └── values.xml
+│   │   │   │   │   │   ├── merger.xml
+│   │   │   │   │   │   └── stripped.dir
+│   │   │   │   │   └── packageDebugResources
+│   │   │   │   │       ├── compile-file-map.properties
+│   │   │   │   │       ├── merged.dir
+│   │   │   │   │       │   └── values
+│   │   │   │   │       │       └── values.xml
+│   │   │   │   │       ├── merger.xml
+│   │   │   │   │       └── stripped.dir
+│   │   │   │   ├── debug-mergeJavaRes
+│   │   │   │   │   ├── merge-state
+│   │   │   │   │   └── zip-cache
+│   │   │   │   │       ├── 0Z6pM025ymh5WViiRvillBU5+sE=
+│   │   │   │   │       ├── 1GZFkUTGCnIpIKq3_FjU4203+uk=
+│   │   │   │   │       ├── 1ng12Xistq8t+j1U1S1PDjSM7U4=
+│   │   │   │   │       ├── 25C8mGaHJOrz382UmaPkxWc240Q=
+│   │   │   │   │       ├── 2W_ZMg5gD3A4wGvXbsmOhhIVvRA=
+│   │   │   │   │       ├── 4RhL57qGc4QHCFtDrHpa1bCckmI=
+│   │   │   │   │       ├── 4SbkO7US9PFNM5OYdJbRjejEprc=
+│   │   │   │   │       ├── 66FI41PE6XFqd1qknQ0lbSf+RuM=
+│   │   │   │   │       ├── 6gOVWuKhFGooPAXQTUyw6OmZL9E=
+│   │   │   │   │       ├── 76YQc2Rg7HszujClOvLcbFUk8eE=
+│   │   │   │   │       ├── 7bB7Fu6ZUAPOoDs8w6xGKN1AWOQ=
+│   │   │   │   │       ├── 7Br+Jj8ZSo_dVbhV_9VCIjnrwp8=
+│   │   │   │   │       ├── 8UxLVLy0R3rOAKwNv5Z62T7ZCZE=
+│   │   │   │   │       ├── _8yZE4WekaGvsw9w9bNXEH1VCS4=
+│   │   │   │   │       ├── a7CA+e+hB_+WzMfJq_iZpv2QodI=
+│   │   │   │   │       ├── AHviKHgjjYPpzBRhoNNS4eCSO0o=
+│   │   │   │   │       ├── bmTxG1y08yOUlBCh6mmKVt++2tk=
+│   │   │   │   │       ├── B_TwZhKqwLi2ltlWvD82_zJv9rQ=
+│   │   │   │   │       ├── d+0LDbGq7pTBWNyPYO4fIQo7gic=
+│   │   │   │   │       ├── dFK7AI52amMN+A_+qyfDZhLHDG0=
+│   │   │   │   │       ├── DrrsZuPTUZaI0qkL8QorMGYurPw=
+│   │   │   │   │       ├── E5BjdMt0_Z7kqRMpJJ5T4U6AwYs=
+│   │   │   │   │       ├── eYaxTbQo6goCRigAE22yEvMH1pw=
+│   │   │   │   │       ├── FM_1K5aFClonXPgJ2eGP8Q9gSzk=
+│   │   │   │   │       ├── FoaN1ZbangmJyqsvRoK5ceyG2wM=
+│   │   │   │   │       ├── G0rQPOFes5J3FOrHSRAJ2HPtAbo=
+│   │   │   │   │       ├── ggOXcIClThJxnIFrxAe7PS_qDrs=
+│   │   │   │   │       ├── IJogXFe86oYv7PuwFp8hmUzJesU=
+│   │   │   │   │       ├── JjNZtoAIzvd9Okq4HdAZZmnTVDc=
+│   │   │   │   │       ├── KcR2Q+D2J2QyChfN07FLyF+vrEE=
+│   │   │   │   │       ├── kmd6adFXKKxmFa1FtTDAraCsPMY=
+│   │   │   │   │       ├── ku2o_mXCEXSOpuC5VxPptQOcG68=
+│   │   │   │   │       ├── KXsWVHJrhQswK_SWuczQtUWCzT4=
+│   │   │   │   │       ├── kYXzkAHTAHSmHUi5bNe8r7dyOgI=
+│   │   │   │   │       ├── KzEuF0_kNNerSg6Us5WYQ8zR9mU=
+│   │   │   │   │       ├── LMlSi9DRaPioeQMnj88ru2tWcNE=
+│   │   │   │   │       ├── M7TxEO9IxG+1PQFsa1iJElKLYxM=
+│   │   │   │   │       ├── MEFx1aE5XD62__Xc0YRo2bozKu4=
+│   │   │   │   │       ├── mf9xmvFKVTCkk51d1m3kaOlpZCY=
+│   │   │   │   │       ├── mhKboVdivy08Nc1MnxImx0rTbGA=
+│   │   │   │   │       ├── nf8Ft2t8FaC9_Gw2c8vCncBk_0M=
+│   │   │   │   │       ├── nuS_VIYGlFykMGqs6x5h+LBCR94=
+│   │   │   │   │       ├── O5IMzCuZtYT2FY8x58A6v_5fD0s=
+│   │   │   │   │       ├── oIE+uNYBIHWMlQGjJtBz8Yd23dc=
+│   │   │   │   │       ├── OLV8OX4MK2w1QZQV9tIjtPWSbKw=
+│   │   │   │   │       ├── oMsVyj_zM+xY8jcReTsGoXRslpE=
+│   │   │   │   │       ├── P3R1VoXf3PpVYF1xiJft3Xjgs7A=
+│   │   │   │   │       ├── P98BtptHVu8cmbPyYnE4YLq5xrk=
+│   │   │   │   │       ├── pA1fM9VrnlrtLW_+j0GiB0MIZM0=
+│   │   │   │   │       ├── pL2ELV1Vq69mFJApVsSaIeVAtGA=
+│   │   │   │   │       ├── qOy6uDRLvTfeW9pMZgytjvyF58g=
+│   │   │   │   │       ├── qTu1Fb2pcXSTlQWcJIESFu1X31U=
+│   │   │   │   │       ├── qX6T6hx5OYY2I_6G9NRMdQJrRCo=
+│   │   │   │   │       ├── RfX+zZ+juyHkxCYUMS6JyRDp+7U=
+│   │   │   │   │       ├── RU4gZc7BW_YEe_Qeo+nEnd8+o0k=
+│   │   │   │   │       ├── RzdHgu3YArnSCNMHCLLJP3Rou9g=
+│   │   │   │   │       ├── tKg0bWT6nSD0KBq3Ikac2Ul84gQ=
+│   │   │   │   │       ├── Ts1bhnnfRHutGVMjz4hbawW3dDw=
+│   │   │   │   │       ├── u9pYw4PwMlRF44xezbBtYi42740=
+│   │   │   │   │       ├── UDPGTYSvGRxc4ZvayqSZgfn6Kw0=
+│   │   │   │   │       ├── UHaQzYk90cZaLFSeFHJJFr7u9sw=
+│   │   │   │   │       ├── UIm8ODsMY82hs_RRpz4DNpsr7ZE=
+│   │   │   │   │       ├── UjefYnGj_M4_2Ovh8qBw6ya2dKY=
+│   │   │   │   │       ├── WcovVMFarFfHOE6geJqJoA3lA8g=
+│   │   │   │   │       ├── WLmn6rnwdaG8dFNax04_AuwuR6E=
+│   │   │   │   │       ├── WVnWRDrgQSSPl8WA1FLP5ODaju8=
+│   │   │   │   │       ├── +WZthNQRuJRwbTaKNkJPdF5FAVw=
+│   │   │   │   │       ├── XcuT2MzvihCW6mZvswv9U6Cp2AA=
+│   │   │   │   │       ├── XEDzODJG_Ae+ksaWXXCqjMrziNA=
+│   │   │   │   │       ├── y6o+TMm6hUShBhCmUDGG0Yi1bKw=
+│   │   │   │   │       ├── Yeyz_8J+nMcj0kt7FfeSe+t+r+s=
+│   │   │   │   │       ├── yOAUuum7+Bw+qXheE3u+M6LKB8Q=
+│   │   │   │   │       ├── ZchrdBxNtQQRUrE2TYKLDsRRyDc=
+│   │   │   │   │       └── zk+ks7uFS19zVdTG_iysZ2Fah54=
+│   │   │   │   ├── mergeDebugAssets
+│   │   │   │   │   └── merger.xml
+│   │   │   │   ├── mergeDebugJniLibFolders
+│   │   │   │   │   └── merger.xml
+│   │   │   │   ├── mergeDebugShaders
+│   │   │   │   │   └── merger.xml
+│   │   │   │   ├── packageDebug
+│   │   │   │   │   └── tmp
+│   │   │   │   │       └── debug
+│   │   │   │   │           ├── dex-renamer-state.txt
+│   │   │   │   │           └── zip-cache
+│   │   │   │   │               ├── androidResources
+│   │   │   │   │               └── javaResources0
+│   │   │   │   ├── processDebugResources
+│   │   │   │   │   └── resources-list-for-linked-resources-binary-format-debug.ap_.txt
+│   │   │   │   └── transformDebugClassesWithAsm
+│   │   │   ├── javac
+│   │   │   │   └── debug
+│   │   │   │       └── compileDebugJavaWithJavac
+│   │   │   │           └── classes
+│   │   │   │               ├── com
+│   │   │   │               │   └── example
+│   │   │   │               │       └── weekly
+│   │   │   │               │           ├── data
+│   │   │   │               │           │   ├── local
+│   │   │   │               │           │   │   ├── AppDatabase$1.class
+│   │   │   │               │           │   │   ├── AppDatabase.class
+│   │   │   │               │           │   │   ├── AppDatabase_Impl$1.class
+│   │   │   │               │           │   │   ├── AppDatabase_Impl.class
+│   │   │   │               │           │   │   ├── Converters.class
+│   │   │   │               │           │   │   ├── dao
+│   │   │   │               │           │   │   │   ├── CategoryDao.class
+│   │   │   │               │           │   │   │   ├── CategoryDao_Impl$1.class
+│   │   │   │               │           │   │   │   ├── CategoryDao_Impl.class
+│   │   │   │               │           │   │   │   ├── EventDao.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$1.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$2.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$3.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$4.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$5.class
+│   │   │   │               │           │   │   │   ├── EventDao_Impl.class
+│   │   │   │               │           │   │   │   ├── TaskDao.class
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$1.class
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$2.class
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$3.class
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$4.class
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$5.class
+│   │   │   │               │           │   │   │   └── TaskDao_Impl.class
+│   │   │   │               │           │   │   └── entities
+│   │   │   │               │           │   │       ├── CategoryEntity.class
+│   │   │   │               │           │   │       ├── EventEntity.class
+│   │   │   │               │           │   │       └── TaskEntity.class
+│   │   │   │               │           │   ├── mappers
+│   │   │   │               │           │   │   ├── EventMapper.class
+│   │   │   │               │           │   │   └── TaskMapper.class
+│   │   │   │               │           │   └── repositories
+│   │   │   │               │           │       ├── RoomEventRepository.class
+│   │   │   │               │           │       └── RoomTaskRepository.class
+│   │   │   │               │           ├── di
+│   │   │   │               │           │   ├── DataModule.class
+│   │   │   │               │           │   ├── DataModule_ProvideCategoryDaoFactory.class
+│   │   │   │               │           │   ├── DataModule_ProvideDatabaseFactory.class
+│   │   │   │               │           │   ├── DataModule_ProvideEventDaoFactory.class
+│   │   │   │               │           │   ├── DataModule_ProvideEventRepositoryFactory.class
+│   │   │   │               │           │   ├── DataModule_ProvideHeatmapServiceFactory$InstanceHolder.class
+│   │   │   │               │           │   ├── DataModule_ProvideHeatmapServiceFactory.class
+│   │   │   │               │           │   ├── DataModule_ProvideTaskDaoFactory.class
+│   │   │   │               │           │   └── DataModule_ProvideTaskRepositoryFactory.class
+│   │   │   │               │           ├── Hilt_MainActivity$1.class
+│   │   │   │               │           ├── Hilt_MainActivity.class
+│   │   │   │               │           ├── MainActivity.class
+│   │   │   │               │           ├── MainActivity_GeneratedInjector.class
+│   │   │   │               │           ├── ui
+│   │   │   │               │           │   ├── adapters
+│   │   │   │               │           │   │   ├── CategoryAdapter$CategoryViewHolder.class
+│   │   │   │               │           │   │   ├── CategoryAdapter$OnCategorySelectedListener.class
+│   │   │   │               │           │   │   ├── CategoryAdapter.class
+│   │   │   │               │           │   │   ├── DayAdapter$1.class
+│   │   │   │               │           │   │   ├── DayAdapter$DayPlanDiffCallback.class
+│   │   │   │               │           │   │   ├── DayAdapter$DayViewHolder$ClickGuard.class
+│   │   │   │               │           │   │   ├── DayAdapter$DayViewHolder.class
+│   │   │   │               │           │   │   ├── DayAdapter$OnDayPlanInteractionListener.class
+│   │   │   │               │           │   │   ├── DayAdapter.class
+│   │   │   │               │           │   │   ├── TaskAdapter$1.class
+│   │   │   │               │           │   │   ├── TaskAdapter$OnTaskInteractionListener.class
+│   │   │   │               │           │   │   ├── TaskAdapter$TaskDiffCallback.class
+│   │   │   │               │           │   │   ├── TaskAdapter$TaskViewHolder.class
+│   │   │   │               │           │   │   └── TaskAdapter.class
+│   │   │   │               │           │   ├── dialogs
+│   │   │   │               │           │   │   ├── AddTaskDialogFragment$1.class
+│   │   │   │               │           │   │   └── AddTaskDialogFragment.class
+│   │   │   │               │           │   ├── models
+│   │   │   │               │           │   │   └── DayPlan.class
+│   │   │   │               │           │   ├── usecases
+│   │   │   │               │           │   │   ├── ProjectWeekUseCase.class
+│   │   │   │               │           │   │   └── ProjectWeekUseCase_Factory.class
+│   │   │   │               │           │   ├── utils
+│   │   │   │               │           │   │   └── TimelineMapper.class
+│   │   │   │               │           │   ├── viewmodels
+│   │   │   │               │           │   │   ├── MainViewModel.class
+│   │   │   │               │           │   │   ├── MainViewModel_Factory.class
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules$BindsModule.class
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules$KeyModule.class
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules.class
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules_KeyModule_ProvideFactory$InstanceHolder.class
+│   │   │   │               │           │   │   └── MainViewModel_HiltModules_KeyModule_ProvideFactory.class
+│   │   │   │               │           │   └── views
+│   │   │   │               │           │       ├── TimelineBackgroundView$1.class
+│   │   │   │               │           │       └── TimelineBackgroundView.class
+│   │   │   │               │           ├── WeeklyApplication.class
+│   │   │   │               │           └── WeeklyApplication_GeneratedInjector.class
+│   │   │   │               ├── dagger
+│   │   │   │               │   └── hilt
+│   │   │   │               │       └── internal
+│   │   │   │               │           └── aggregatedroot
+│   │   │   │               │               └── codegen
+│   │   │   │               │                   └── _com_example_weekly_WeeklyApplication.class
+│   │   │   │               └── hilt_aggregated_deps
+│   │   │   │                   ├── _com_example_weekly_di_DataModule.class
+│   │   │   │                   ├── _com_example_weekly_MainActivity_GeneratedInjector.class
+│   │   │   │                   ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_BindsModule.class
+│   │   │   │                   ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_KeyModule.class
+│   │   │   │                   └── _com_example_weekly_WeeklyApplication_GeneratedInjector.class
+│   │   │   ├── java_res
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugJavaRes
+│   │   │   │           └── out
+│   │   │   │               ├── com
+│   │   │   │               │   └── example
+│   │   │   │               │       └── weekly
+│   │   │   │               │           ├── data
+│   │   │   │               │           │   ├── local
+│   │   │   │               │           │   │   ├── dao
+│   │   │   │               │           │   │   └── entities
+│   │   │   │               │           │   ├── mappers
+│   │   │   │               │           │   └── repositories
+│   │   │   │               │           ├── di
+│   │   │   │               │           └── ui
+│   │   │   │               │               ├── adapters
+│   │   │   │               │               ├── dialogs
+│   │   │   │               │               ├── models
+│   │   │   │               │               ├── usecases
+│   │   │   │               │               ├── utils
+│   │   │   │               │               ├── viewmodels
+│   │   │   │               │               └── views
+│   │   │   │               ├── dagger
+│   │   │   │               │   └── hilt
+│   │   │   │               │       └── internal
+│   │   │   │               │           ├── aggregatedroot
+│   │   │   │               │           │   └── codegen
+│   │   │   │               │           └── processedrootsentinel
+│   │   │   │               │               └── codegen
+│   │   │   │               └── hilt_aggregated_deps
+│   │   │   ├── l8_art_profile
+│   │   │   │   └── debug
+│   │   │   │       └── l8DexDesugarLibDebug
+│   │   │   ├── linked_resources_binary_format
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugResources
+│   │   │   │           ├── linked-resources-binary-format-debug.ap_
+│   │   │   │           └── output-metadata.json
+│   │   │   ├── local_only_symbol_list
+│   │   │   │   └── debug
+│   │   │   │       └── parseDebugLocalResources
+│   │   │   │           └── R-def.txt
+│   │   │   ├── manifest_merge_blame_file
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugMainManifest
+│   │   │   │           └── manifest-merger-blame-debug-report.txt
+│   │   │   ├── merged_java_res
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugJavaResource
+│   │   │   │           └── base.jar
+│   │   │   ├── merged_jni_libs
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugJniLibFolders
+│   │   │   │           └── out
+│   │   │   ├── merged_manifest
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugMainManifest
+│   │   │   │           └── AndroidManifest.xml
+│   │   │   ├── merged_manifests
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugManifest
+│   │   │   │           ├── AndroidManifest.xml
+│   │   │   │           └── output-metadata.json
+│   │   │   ├── merged_res
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugResources
+│   │   │   │           ├── drawable_bg_category_selected.xml.flat
+│   │   │   │           ├── drawable_bg_circle.xml.flat
+│   │   │   │           ├── drawable_bg_dialog_rounded.xml.flat
+│   │   │   │           ├── drawable_bg_timeline_block_high.xml.flat
+│   │   │   │           ├── drawable_bg_timeline_block_low.xml.flat
+│   │   │   │           ├── drawable_bg_timeline_block_medium.xml.flat
+│   │   │   │           ├── drawable_ic_add.xml.flat
+│   │   │   │           ├── drawable_ic_check.xml.flat
+│   │   │   │           ├── drawable_ic_chevron_down.xml.flat
+│   │   │   │           ├── drawable_ic_edit.xml.flat
+│   │   │   │           ├── drawable_ic_launcher_background.xml.flat
+│   │   │   │           ├── drawable_ic_launcher_foreground.xml.flat
+│   │   │   │           ├── drawable_ic_priority_high.xml.flat
+│   │   │   │           ├── layout_activity_main.xml.flat
+│   │   │   │           ├── layout_dialog_task_options.xml.flat
+│   │   │   │           ├── layout_item_category_picker.xml.flat
+│   │   │   │           ├── layout_item_day.xml.flat
+│   │   │   │           ├── layout_item_task.xml.flat
+│   │   │   │           ├── layout_item_timeline_block.xml.flat
+│   │   │   │           ├── layout_layout_add_task.xml.flat
+│   │   │   │           ├── mipmap-anydpi-v26_ic_launcher_round.xml.flat
+│   │   │   │           ├── mipmap-anydpi-v26_ic_launcher.xml.flat
+│   │   │   │           ├── mipmap-hdpi_ic_launcher_round.webp.flat
+│   │   │   │           ├── mipmap-hdpi_ic_launcher.webp.flat
+│   │   │   │           ├── mipmap-mdpi_ic_launcher_round.webp.flat
+│   │   │   │           ├── mipmap-mdpi_ic_launcher.webp.flat
+│   │   │   │           ├── mipmap-xhdpi_ic_launcher_round.webp.flat
+│   │   │   │           ├── mipmap-xhdpi_ic_launcher.webp.flat
+│   │   │   │           ├── mipmap-xxhdpi_ic_launcher_round.webp.flat
+│   │   │   │           ├── mipmap-xxhdpi_ic_launcher.webp.flat
+│   │   │   │           ├── mipmap-xxxhdpi_ic_launcher_round.webp.flat
+│   │   │   │           ├── mipmap-xxxhdpi_ic_launcher.webp.flat
+│   │   │   │           ├── values-af_values-af.arsc.flat
+│   │   │   │           ├── values-am_values-am.arsc.flat
+│   │   │   │           ├── values-ar_values-ar.arsc.flat
+│   │   │   │           ├── values-as_values-as.arsc.flat
+│   │   │   │           ├── values-az_values-az.arsc.flat
+│   │   │   │           ├── values-b+es+419_values-b+es+419.arsc.flat
+│   │   │   │           ├── values-be_values-be.arsc.flat
+│   │   │   │           ├── values-bg_values-bg.arsc.flat
+│   │   │   │           ├── values-bn_values-bn.arsc.flat
+│   │   │   │           ├── values-b+sr+Latn_values-b+sr+Latn.arsc.flat
+│   │   │   │           ├── values-bs_values-bs.arsc.flat
+│   │   │   │           ├── values-ca_values-ca.arsc.flat
+│   │   │   │           ├── values-cs_values-cs.arsc.flat
+│   │   │   │           ├── values-da_values-da.arsc.flat
+│   │   │   │           ├── values-de_values-de.arsc.flat
+│   │   │   │           ├── values-el_values-el.arsc.flat
+│   │   │   │           ├── values-en-rAU_values-en-rAU.arsc.flat
+│   │   │   │           ├── values-en-rCA_values-en-rCA.arsc.flat
+│   │   │   │           ├── values-en-rGB_values-en-rGB.arsc.flat
+│   │   │   │           ├── values-en-rIN_values-en-rIN.arsc.flat
+│   │   │   │           ├── values-en-rXC_values-en-rXC.arsc.flat
+│   │   │   │           ├── values-es-rUS_values-es-rUS.arsc.flat
+│   │   │   │           ├── values-es_values-es.arsc.flat
+│   │   │   │           ├── values-et_values-et.arsc.flat
+│   │   │   │           ├── values-eu_values-eu.arsc.flat
+│   │   │   │           ├── values-fa_values-fa.arsc.flat
+│   │   │   │           ├── values-fi_values-fi.arsc.flat
+│   │   │   │           ├── values-fr-rCA_values-fr-rCA.arsc.flat
+│   │   │   │           ├── values-fr_values-fr.arsc.flat
+│   │   │   │           ├── values-gl_values-gl.arsc.flat
+│   │   │   │           ├── values-gu_values-gu.arsc.flat
+│   │   │   │           ├── values-h320dp-port-v13_values-h320dp-port-v13.arsc.flat
+│   │   │   │           ├── values-h360dp-land-v13_values-h360dp-land-v13.arsc.flat
+│   │   │   │           ├── values-h480dp-land-v13_values-h480dp-land-v13.arsc.flat
+│   │   │   │           ├── values-h550dp-port-v13_values-h550dp-port-v13.arsc.flat
+│   │   │   │           ├── values-h720dp-v13_values-h720dp-v13.arsc.flat
+│   │   │   │           ├── values-hdpi-v4_values-hdpi-v4.arsc.flat
+│   │   │   │           ├── values-hi_values-hi.arsc.flat
+│   │   │   │           ├── values-hr_values-hr.arsc.flat
+│   │   │   │           ├── values-hu_values-hu.arsc.flat
+│   │   │   │           ├── values-hy_values-hy.arsc.flat
+│   │   │   │           ├── values-in_values-in.arsc.flat
+│   │   │   │           ├── values-is_values-is.arsc.flat
+│   │   │   │           ├── values-it_values-it.arsc.flat
+│   │   │   │           ├── values-iw_values-iw.arsc.flat
+│   │   │   │           ├── values-ja_values-ja.arsc.flat
+│   │   │   │           ├── values-ka_values-ka.arsc.flat
+│   │   │   │           ├── values-kk_values-kk.arsc.flat
+│   │   │   │           ├── values-km_values-km.arsc.flat
+│   │   │   │           ├── values-kn_values-kn.arsc.flat
+│   │   │   │           ├── values-ko_values-ko.arsc.flat
+│   │   │   │           ├── values-ky_values-ky.arsc.flat
+│   │   │   │           ├── values-land_values-land.arsc.flat
+│   │   │   │           ├── values-large-v4_values-large-v4.arsc.flat
+│   │   │   │           ├── values-ldltr-v21_values-ldltr-v21.arsc.flat
+│   │   │   │           ├── values-ldrtl-v17_values-ldrtl-v17.arsc.flat
+│   │   │   │           ├── values-lo_values-lo.arsc.flat
+│   │   │   │           ├── values-lt_values-lt.arsc.flat
+│   │   │   │           ├── values-lv_values-lv.arsc.flat
+│   │   │   │           ├── values-mk_values-mk.arsc.flat
+│   │   │   │           ├── values-ml_values-ml.arsc.flat
+│   │   │   │           ├── values-mn_values-mn.arsc.flat
+│   │   │   │           ├── values-mr_values-mr.arsc.flat
+│   │   │   │           ├── values-ms_values-ms.arsc.flat
+│   │   │   │           ├── values-my_values-my.arsc.flat
+│   │   │   │           ├── values-nb_values-nb.arsc.flat
+│   │   │   │           ├── values-ne_values-ne.arsc.flat
+│   │   │   │           ├── values-night-v8_values-night-v8.arsc.flat
+│   │   │   │           ├── values-nl_values-nl.arsc.flat
+│   │   │   │           ├── values-or_values-or.arsc.flat
+│   │   │   │           ├── values-pa_values-pa.arsc.flat
+│   │   │   │           ├── values-pl_values-pl.arsc.flat
+│   │   │   │           ├── values-port_values-port.arsc.flat
+│   │   │   │           ├── values-pt-rBR_values-pt-rBR.arsc.flat
+│   │   │   │           ├── values-pt-rPT_values-pt-rPT.arsc.flat
+│   │   │   │           ├── values-pt_values-pt.arsc.flat
+│   │   │   │           ├── values-ro_values-ro.arsc.flat
+│   │   │   │           ├── values-ru_values-ru.arsc.flat
+│   │   │   │           ├── values-si_values-si.arsc.flat
+│   │   │   │           ├── values-sk_values-sk.arsc.flat
+│   │   │   │           ├── values-sl_values-sl.arsc.flat
+│   │   │   │           ├── values-small-v4_values-small-v4.arsc.flat
+│   │   │   │           ├── values-sq_values-sq.arsc.flat
+│   │   │   │           ├── values-sr_values-sr.arsc.flat
+│   │   │   │           ├── values-sv_values-sv.arsc.flat
+│   │   │   │           ├── values-sw600dp-v13_values-sw600dp-v13.arsc.flat
+│   │   │   │           ├── values-sw_values-sw.arsc.flat
+│   │   │   │           ├── values-ta_values-ta.arsc.flat
+│   │   │   │           ├── values-te_values-te.arsc.flat
+│   │   │   │           ├── values-th_values-th.arsc.flat
+│   │   │   │           ├── values-tl_values-tl.arsc.flat
+│   │   │   │           ├── values-tr_values-tr.arsc.flat
+│   │   │   │           ├── values-uk_values-uk.arsc.flat
+│   │   │   │           ├── values-ur_values-ur.arsc.flat
+│   │   │   │           ├── values-uz_values-uz.arsc.flat
+│   │   │   │           ├── values-v16_values-v16.arsc.flat
+│   │   │   │           ├── values-v17_values-v17.arsc.flat
+│   │   │   │           ├── values-v18_values-v18.arsc.flat
+│   │   │   │           ├── values-v21_values-v21.arsc.flat
+│   │   │   │           ├── values-v22_values-v22.arsc.flat
+│   │   │   │           ├── values-v23_values-v23.arsc.flat
+│   │   │   │           ├── values-v24_values-v24.arsc.flat
+│   │   │   │           ├── values-v25_values-v25.arsc.flat
+│   │   │   │           ├── values-v26_values-v26.arsc.flat
+│   │   │   │           ├── values-v28_values-v28.arsc.flat
+│   │   │   │           ├── values-v31_values-v31.arsc.flat
+│   │   │   │           ├── values_values.arsc.flat
+│   │   │   │           ├── values-vi_values-vi.arsc.flat
+│   │   │   │           ├── values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat
+│   │   │   │           ├── values-w360dp-port-v13_values-w360dp-port-v13.arsc.flat
+│   │   │   │           ├── values-w400dp-port-v13_values-w400dp-port-v13.arsc.flat
+│   │   │   │           ├── values-w600dp-land-v13_values-w600dp-land-v13.arsc.flat
+│   │   │   │           ├── values-watch-v20_values-watch-v20.arsc.flat
+│   │   │   │           ├── values-watch-v21_values-watch-v21.arsc.flat
+│   │   │   │           ├── values-xlarge-v4_values-xlarge-v4.arsc.flat
+│   │   │   │           ├── values-zh-rCN_values-zh-rCN.arsc.flat
+│   │   │   │           ├── values-zh-rHK_values-zh-rHK.arsc.flat
+│   │   │   │           ├── values-zh-rTW_values-zh-rTW.arsc.flat
+│   │   │   │           ├── values-zu_values-zu.arsc.flat
+│   │   │   │           ├── xml_backup_rules.xml.flat
+│   │   │   │           └── xml_data_extraction_rules.xml.flat
+│   │   │   ├── merged_res_blame_folder
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugResources
+│   │   │   │           └── out
+│   │   │   │               ├── multi-v2
+│   │   │   │               │   ├── mergeDebugResources.json
+│   │   │   │               │   ├── values-af.json
+│   │   │   │               │   ├── values-am.json
+│   │   │   │               │   ├── values-ar.json
+│   │   │   │               │   ├── values-as.json
+│   │   │   │               │   ├── values-az.json
+│   │   │   │               │   ├── values-be.json
+│   │   │   │               │   ├── values-b+es+419.json
+│   │   │   │               │   ├── values-bg.json
+│   │   │   │               │   ├── values-bn.json
+│   │   │   │               │   ├── values-bs.json
+│   │   │   │               │   ├── values-b+sr+Latn.json
+│   │   │   │               │   ├── values-ca.json
+│   │   │   │               │   ├── values-cs.json
+│   │   │   │               │   ├── values-da.json
+│   │   │   │               │   ├── values-de.json
+│   │   │   │               │   ├── values-el.json
+│   │   │   │               │   ├── values-en-rAU.json
+│   │   │   │               │   ├── values-en-rCA.json
+│   │   │   │               │   ├── values-en-rGB.json
+│   │   │   │               │   ├── values-en-rIN.json
+│   │   │   │               │   ├── values-en-rXC.json
+│   │   │   │               │   ├── values-es.json
+│   │   │   │               │   ├── values-es-rUS.json
+│   │   │   │               │   ├── values-et.json
+│   │   │   │               │   ├── values-eu.json
+│   │   │   │               │   ├── values-fa.json
+│   │   │   │               │   ├── values-fi.json
+│   │   │   │               │   ├── values-fr.json
+│   │   │   │               │   ├── values-fr-rCA.json
+│   │   │   │               │   ├── values-gl.json
+│   │   │   │               │   ├── values-gu.json
+│   │   │   │               │   ├── values-h320dp-port-v13.json
+│   │   │   │               │   ├── values-h360dp-land-v13.json
+│   │   │   │               │   ├── values-h480dp-land-v13.json
+│   │   │   │               │   ├── values-h550dp-port-v13.json
+│   │   │   │               │   ├── values-h720dp-v13.json
+│   │   │   │               │   ├── values-hdpi-v4.json
+│   │   │   │               │   ├── values-hi.json
+│   │   │   │               │   ├── values-hr.json
+│   │   │   │               │   ├── values-hu.json
+│   │   │   │               │   ├── values-hy.json
+│   │   │   │               │   ├── values-in.json
+│   │   │   │               │   ├── values-is.json
+│   │   │   │               │   ├── values-it.json
+│   │   │   │               │   ├── values-iw.json
+│   │   │   │               │   ├── values-ja.json
+│   │   │   │               │   ├── values.json
+│   │   │   │               │   ├── values-ka.json
+│   │   │   │               │   ├── values-kk.json
+│   │   │   │               │   ├── values-km.json
+│   │   │   │               │   ├── values-kn.json
+│   │   │   │               │   ├── values-ko.json
+│   │   │   │               │   ├── values-ky.json
+│   │   │   │               │   ├── values-land.json
+│   │   │   │               │   ├── values-large-v4.json
+│   │   │   │               │   ├── values-ldltr-v21.json
+│   │   │   │               │   ├── values-ldrtl-v17.json
+│   │   │   │               │   ├── values-lo.json
+│   │   │   │               │   ├── values-lt.json
+│   │   │   │               │   ├── values-lv.json
+│   │   │   │               │   ├── values-mk.json
+│   │   │   │               │   ├── values-ml.json
+│   │   │   │               │   ├── values-mn.json
+│   │   │   │               │   ├── values-mr.json
+│   │   │   │               │   ├── values-ms.json
+│   │   │   │               │   ├── values-my.json
+│   │   │   │               │   ├── values-nb.json
+│   │   │   │               │   ├── values-ne.json
+│   │   │   │               │   ├── values-night-v8.json
+│   │   │   │               │   ├── values-nl.json
+│   │   │   │               │   ├── values-or.json
+│   │   │   │               │   ├── values-pa.json
+│   │   │   │               │   ├── values-pl.json
+│   │   │   │               │   ├── values-port.json
+│   │   │   │               │   ├── values-pt.json
+│   │   │   │               │   ├── values-pt-rBR.json
+│   │   │   │               │   ├── values-pt-rPT.json
+│   │   │   │               │   ├── values-ro.json
+│   │   │   │               │   ├── values-ru.json
+│   │   │   │               │   ├── values-si.json
+│   │   │   │               │   ├── values-sk.json
+│   │   │   │               │   ├── values-sl.json
+│   │   │   │               │   ├── values-small-v4.json
+│   │   │   │               │   ├── values-sq.json
+│   │   │   │               │   ├── values-sr.json
+│   │   │   │               │   ├── values-sv.json
+│   │   │   │               │   ├── values-sw600dp-v13.json
+│   │   │   │               │   ├── values-sw.json
+│   │   │   │               │   ├── values-ta.json
+│   │   │   │               │   ├── values-te.json
+│   │   │   │               │   ├── values-th.json
+│   │   │   │               │   ├── values-tl.json
+│   │   │   │               │   ├── values-tr.json
+│   │   │   │               │   ├── values-uk.json
+│   │   │   │               │   ├── values-ur.json
+│   │   │   │               │   ├── values-uz.json
+│   │   │   │               │   ├── values-v16.json
+│   │   │   │               │   ├── values-v17.json
+│   │   │   │               │   ├── values-v18.json
+│   │   │   │               │   ├── values-v21.json
+│   │   │   │               │   ├── values-v22.json
+│   │   │   │               │   ├── values-v23.json
+│   │   │   │               │   ├── values-v24.json
+│   │   │   │               │   ├── values-v25.json
+│   │   │   │               │   ├── values-v26.json
+│   │   │   │               │   ├── values-v28.json
+│   │   │   │               │   ├── values-v31.json
+│   │   │   │               │   ├── values-vi.json
+│   │   │   │               │   ├── values-w320dp-land-v13.json
+│   │   │   │               │   ├── values-w360dp-port-v13.json
+│   │   │   │               │   ├── values-w400dp-port-v13.json
+│   │   │   │               │   ├── values-w600dp-land-v13.json
+│   │   │   │               │   ├── values-watch-v20.json
+│   │   │   │               │   ├── values-watch-v21.json
+│   │   │   │               │   ├── values-xlarge-v4.json
+│   │   │   │               │   ├── values-zh-rCN.json
+│   │   │   │               │   ├── values-zh-rHK.json
+│   │   │   │               │   ├── values-zh-rTW.json
+│   │   │   │               │   └── values-zu.json
+│   │   │   │               └── single
+│   │   │   │                   └── mergeDebugResources.json
+│   │   │   ├── merged_shaders
+│   │   │   │   └── debug
+│   │   │   │       └── mergeDebugShaders
+│   │   │   │           └── out
+│   │   │   ├── mixed_scope_dex_archive
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── navigation_json
+│   │   │   │   └── debug
+│   │   │   │       └── extractDeepLinksDebug
+│   │   │   │           └── navigation.json
+│   │   │   ├── nested_resources_validation_report
+│   │   │   │   └── debug
+│   │   │   │       └── generateDebugResources
+│   │   │   │           └── nestedResourcesValidationReport.txt
+│   │   │   ├── packaged_manifests
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugManifestForPackage
+│   │   │   │           ├── AndroidManifest.xml
+│   │   │   │           └── output-metadata.json
+│   │   │   ├── packaged_res
+│   │   │   │   └── debug
+│   │   │   │       └── packageDebugResources
+│   │   │   │           ├── drawable
+│   │   │   │           │   ├── bg_category_selected.xml
+│   │   │   │           │   ├── bg_circle.xml
+│   │   │   │           │   ├── bg_dialog_rounded.xml
+│   │   │   │           │   ├── bg_timeline_block_high.xml
+│   │   │   │           │   ├── bg_timeline_block_low.xml
+│   │   │   │           │   ├── bg_timeline_block_medium.xml
+│   │   │   │           │   ├── ic_add.xml
+│   │   │   │           │   ├── ic_check.xml
+│   │   │   │           │   ├── ic_chevron_down.xml
+│   │   │   │           │   ├── ic_edit.xml
+│   │   │   │           │   ├── ic_launcher_background.xml
+│   │   │   │           │   ├── ic_launcher_foreground.xml
+│   │   │   │           │   └── ic_priority_high.xml
+│   │   │   │           ├── layout
+│   │   │   │           │   ├── activity_main.xml
+│   │   │   │           │   ├── dialog_task_options.xml
+│   │   │   │           │   ├── item_category_picker.xml
+│   │   │   │           │   ├── item_day.xml
+│   │   │   │           │   ├── item_task.xml
+│   │   │   │           │   ├── item_timeline_block.xml
+│   │   │   │           │   └── layout_add_task.xml
+│   │   │   │           ├── mipmap-anydpi-v26
+│   │   │   │           │   ├── ic_launcher_round.xml
+│   │   │   │           │   └── ic_launcher.xml
+│   │   │   │           ├── mipmap-hdpi-v4
+│   │   │   │           │   ├── ic_launcher_round.webp
+│   │   │   │           │   └── ic_launcher.webp
+│   │   │   │           ├── mipmap-mdpi-v4
+│   │   │   │           │   ├── ic_launcher_round.webp
+│   │   │   │           │   └── ic_launcher.webp
+│   │   │   │           ├── mipmap-xhdpi-v4
+│   │   │   │           │   ├── ic_launcher_round.webp
+│   │   │   │           │   └── ic_launcher.webp
+│   │   │   │           ├── mipmap-xxhdpi-v4
+│   │   │   │           │   ├── ic_launcher_round.webp
+│   │   │   │           │   └── ic_launcher.webp
+│   │   │   │           ├── mipmap-xxxhdpi-v4
+│   │   │   │           │   ├── ic_launcher_round.webp
+│   │   │   │           │   └── ic_launcher.webp
+│   │   │   │           ├── values
+│   │   │   │           │   └── values.xml
+│   │   │   │           ├── values-night-v8
+│   │   │   │           │   └── values-night-v8.xml
+│   │   │   │           └── xml
+│   │   │   │               ├── backup_rules.xml
+│   │   │   │               └── data_extraction_rules.xml
+│   │   │   ├── project_dex_archive
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   │               ├── c331c84fb12e72df32606b5e3d09bc948694f1dbe829cd35adb811e08f0662f8_0.jar
+│   │   │   │               ├── c331c84fb12e72df32606b5e3d09bc948694f1dbe829cd35adb811e08f0662f8_1.jar
+│   │   │   │               ├── c331c84fb12e72df32606b5e3d09bc948694f1dbe829cd35adb811e08f0662f8_2.jar
+│   │   │   │               ├── c331c84fb12e72df32606b5e3d09bc948694f1dbe829cd35adb811e08f0662f8_3.jar
+│   │   │   │               ├── com
+│   │   │   │               │   └── example
+│   │   │   │               │       └── weekly
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl$LazyClassKeyProvider.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl$SwitchingProvider.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$Builder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl$SwitchingProvider.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$LazyClassKeyProvider.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$SwitchingProvider.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCBuilder.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCImpl.dex
+│   │   │   │               │           ├── DaggerWeeklyApplication_HiltComponents_SingletonC.dex
+│   │   │   │               │           ├── data
+│   │   │   │               │           │   ├── local
+│   │   │   │               │           │   │   ├── AppDatabase$1.dex
+│   │   │   │               │           │   │   ├── AppDatabase.dex
+│   │   │   │               │           │   │   ├── AppDatabase_Impl$1.dex
+│   │   │   │               │           │   │   ├── AppDatabase_Impl.dex
+│   │   │   │               │           │   │   ├── Converters.dex
+│   │   │   │               │           │   │   ├── dao
+│   │   │   │               │           │   │   │   ├── CategoryDao.dex
+│   │   │   │               │           │   │   │   ├── CategoryDao_Impl$1.dex
+│   │   │   │               │           │   │   │   ├── CategoryDao_Impl.dex
+│   │   │   │               │           │   │   │   ├── EventDao.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$1.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$2.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$3.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$4.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl$5.dex
+│   │   │   │               │           │   │   │   ├── EventDao_Impl.dex
+│   │   │   │               │           │   │   │   ├── TaskDao.dex
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$1.dex
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$2.dex
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$3.dex
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$4.dex
+│   │   │   │               │           │   │   │   ├── TaskDao_Impl$5.dex
+│   │   │   │               │           │   │   │   └── TaskDao_Impl.dex
+│   │   │   │               │           │   │   └── entities
+│   │   │   │               │           │   │       ├── CategoryEntity.dex
+│   │   │   │               │           │   │       ├── EventEntity.dex
+│   │   │   │               │           │   │       └── TaskEntity.dex
+│   │   │   │               │           │   ├── mappers
+│   │   │   │               │           │   │   ├── EventMapper.dex
+│   │   │   │               │           │   │   └── TaskMapper.dex
+│   │   │   │               │           │   └── repositories
+│   │   │   │               │           │       ├── RoomEventRepository.dex
+│   │   │   │               │           │       └── RoomTaskRepository.dex
+│   │   │   │               │           ├── di
+│   │   │   │               │           │   ├── DataModule.dex
+│   │   │   │               │           │   ├── DataModule_ProvideCategoryDaoFactory.dex
+│   │   │   │               │           │   ├── DataModule_ProvideDatabaseFactory.dex
+│   │   │   │               │           │   ├── DataModule_ProvideEventDaoFactory.dex
+│   │   │   │               │           │   ├── DataModule_ProvideEventRepositoryFactory.dex
+│   │   │   │               │           │   ├── DataModule_ProvideHeatmapServiceFactory$InstanceHolder.dex
+│   │   │   │               │           │   ├── DataModule_ProvideHeatmapServiceFactory.dex
+│   │   │   │               │           │   ├── DataModule_ProvideTaskDaoFactory.dex
+│   │   │   │               │           │   └── DataModule_ProvideTaskRepositoryFactory.dex
+│   │   │   │               │           ├── Hilt_MainActivity$1.dex
+│   │   │   │               │           ├── Hilt_MainActivity.dex
+│   │   │   │               │           ├── Hilt_WeeklyApplication$1.dex
+│   │   │   │               │           ├── Hilt_WeeklyApplication.dex
+│   │   │   │               │           ├── MainActivity.dex
+│   │   │   │               │           ├── MainActivity_GeneratedInjector.dex
+│   │   │   │               │           ├── ui
+│   │   │   │               │           │   ├── adapters
+│   │   │   │               │           │   │   ├── CategoryAdapter$CategoryViewHolder.dex
+│   │   │   │               │           │   │   ├── CategoryAdapter$OnCategorySelectedListener.dex
+│   │   │   │               │           │   │   ├── CategoryAdapter.dex
+│   │   │   │               │           │   │   ├── DayAdapter$1.dex
+│   │   │   │               │           │   │   ├── DayAdapter$DayPlanDiffCallback.dex
+│   │   │   │               │           │   │   ├── DayAdapter$DayViewHolder$ClickGuard.dex
+│   │   │   │               │           │   │   ├── DayAdapter$DayViewHolder.dex
+│   │   │   │               │           │   │   ├── DayAdapter$OnDayPlanInteractionListener.dex
+│   │   │   │               │           │   │   ├── DayAdapter.dex
+│   │   │   │               │           │   │   ├── TaskAdapter$1.dex
+│   │   │   │               │           │   │   ├── TaskAdapter$OnTaskInteractionListener.dex
+│   │   │   │               │           │   │   ├── TaskAdapter$TaskDiffCallback.dex
+│   │   │   │               │           │   │   ├── TaskAdapter$TaskViewHolder.dex
+│   │   │   │               │           │   │   └── TaskAdapter.dex
+│   │   │   │               │           │   ├── dialogs
+│   │   │   │               │           │   │   ├── AddTaskDialogFragment$1.dex
+│   │   │   │               │           │   │   └── AddTaskDialogFragment.dex
+│   │   │   │               │           │   ├── models
+│   │   │   │               │           │   │   └── DayPlan.dex
+│   │   │   │               │           │   ├── usecases
+│   │   │   │               │           │   │   ├── ProjectWeekUseCase.dex
+│   │   │   │               │           │   │   └── ProjectWeekUseCase_Factory.dex
+│   │   │   │               │           │   ├── utils
+│   │   │   │               │           │   │   └── TimelineMapper.dex
+│   │   │   │               │           │   ├── viewmodels
+│   │   │   │               │           │   │   ├── MainViewModel.dex
+│   │   │   │               │           │   │   ├── MainViewModel_Factory.dex
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules$BindsModule.dex
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules$KeyModule.dex
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules.dex
+│   │   │   │               │           │   │   ├── MainViewModel_HiltModules_KeyModule_ProvideFactory$InstanceHolder.dex
+│   │   │   │               │           │   │   └── MainViewModel_HiltModules_KeyModule_ProvideFactory.dex
+│   │   │   │               │           │   └── views
+│   │   │   │               │           │       ├── TimelineBackgroundView$1.dex
+│   │   │   │               │           │       └── TimelineBackgroundView.dex
+│   │   │   │               │           ├── WeeklyApplication_ComponentTreeDeps.dex
+│   │   │   │               │           ├── WeeklyApplication.dex
+│   │   │   │               │           ├── WeeklyApplication_GeneratedInjector.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityRetainedCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ActivityRetainedC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$FragmentC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$FragmentCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$FragmentC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ServiceC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ServiceCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ServiceC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$SingletonC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewModelC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewModelCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewModelC.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC$Builder.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentCBuilderModule.dex
+│   │   │   │               │           ├── WeeklyApplication_HiltComponents$ViewWithFragmentC.dex
+│   │   │   │               │           └── WeeklyApplication_HiltComponents.dex
+│   │   │   │               ├── dagger
+│   │   │   │               │   └── hilt
+│   │   │   │               │       └── internal
+│   │   │   │               │           ├── aggregatedroot
+│   │   │   │               │           │   └── codegen
+│   │   │   │               │           │       └── _com_example_weekly_WeeklyApplication.dex
+│   │   │   │               │           └── processedrootsentinel
+│   │   │   │               │               └── codegen
+│   │   │   │               │                   └── _com_example_weekly_WeeklyApplication.dex
+│   │   │   │               └── hilt_aggregated_deps
+│   │   │   │                   ├── _com_example_weekly_di_DataModule.dex
+│   │   │   │                   ├── _com_example_weekly_MainActivity_GeneratedInjector.dex
+│   │   │   │                   ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_BindsModule.dex
+│   │   │   │                   ├── _com_example_weekly_ui_viewmodels_MainViewModel_HiltModules_KeyModule.dex
+│   │   │   │                   └── _com_example_weekly_WeeklyApplication_GeneratedInjector.dex
+│   │   │   ├── runtime_symbol_list
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugResources
+│   │   │   │           └── R.txt
+│   │   │   ├── signing_config_versions
+│   │   │   │   └── debug
+│   │   │   │       └── writeDebugSigningConfigVersions
+│   │   │   │           └── signing-config-versions.json
+│   │   │   ├── source_set_path_map
+│   │   │   │   └── debug
+│   │   │   │       └── mapDebugSourceSetPaths
+│   │   │   │           └── file-map.txt
+│   │   │   ├── stable_resource_ids_file
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugResources
+│   │   │   │           └── stableIds.txt
+│   │   │   ├── sub_project_dex_archive
+│   │   │   │   └── debug
+│   │   │   │       └── dexBuilderDebug
+│   │   │   │           └── out
+│   │   │   ├── symbol_list_with_package_name
+│   │   │   │   └── debug
+│   │   │   │       └── processDebugResources
+│   │   │   │           └── package-aware-r.txt
+│   │   │   └── validate_signing_config
+│   │   │       └── debug
+│   │   │           └── validateSigningDebug
+│   │   ├── outputs
+│   │   │   └── logs
+│   │   │       └── manifest-merger-debug-report.txt
+│   │   └── tmp
+│   │       ├── compileDebugJavaWithJavac
+│   │       │   ├── compileTransaction
+│   │       │   │   ├── backup-dir
+│   │       │   │   │   ├── _com_example_weekly_MainActivity_GeneratedInjector.class4
+│   │       │   │   │   ├── Hilt_MainActivity$1.class2
+│   │       │   │   │   ├── Hilt_MainActivity.class3
+│   │       │   │   │   └── MainActivity_GeneratedInjector.class1
+│   │       │   │   └── stash-dir
+│   │       │   │       ├── AddTaskDialogFragment$1.class.uniqueId2
+│   │       │   │       ├── AddTaskDialogFragment.class.uniqueId1
+│   │       │   │       └── MainActivity.class.uniqueId0
+│   │       │   └── previous-compilation-data.bin
+│   │       └── hiltJavaCompileDebug
+│   │           ├── compileTransaction
+│   │           │   ├── backup-dir
+│   │           │   │   ├── _com_example_weekly_WeeklyApplication.class1
+│   │           │   │   ├── _com_example_weekly_WeeklyApplication_GeneratedInjector.class3
+│   │           │   │   └── WeeklyApplication_GeneratedInjector.class2
+│   │           │   └── stash-dir
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCBuilder.class.uniqueId31
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl$LazyClassKeyProvider.class.uniqueId49
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityCImpl.class.uniqueId35
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCBuilder.class.uniqueId2
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl$SwitchingProvider.class.uniqueId10
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ActivityRetainedCImpl.class.uniqueId24
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$Builder.class.uniqueId30
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCBuilder.class.uniqueId12
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$FragmentCImpl.class.uniqueId1
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCBuilder.class.uniqueId15
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ServiceCImpl.class.uniqueId16
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl$SwitchingProvider.class.uniqueId39
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$SingletonCImpl.class.uniqueId29
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCBuilder.class.uniqueId23
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewCImpl.class.uniqueId5
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCBuilder.class.uniqueId13
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$LazyClassKeyProvider.class.uniqueId38
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl$SwitchingProvider.class.uniqueId41
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewModelCImpl.class.uniqueId45
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCBuilder.class.uniqueId34
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC$ViewWithFragmentCImpl.class.uniqueId3
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC.class.uniqueId27
+│   │           │       ├── DaggerWeeklyApplication_HiltComponents_SingletonC.java.uniqueId25
+│   │           │       ├── Hilt_WeeklyApplication$1.class.uniqueId14
+│   │           │       ├── Hilt_WeeklyApplication.class.uniqueId18
+│   │           │       ├── Hilt_WeeklyApplication.java.uniqueId32
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityC$Builder.class.uniqueId0
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityCBuilderModule.class.uniqueId21
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityC.class.uniqueId42
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityRetainedC$Builder.class.uniqueId26
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityRetainedCBuilderModule.class.uniqueId11
+│   │           │       ├── WeeklyApplication_HiltComponents$ActivityRetainedC.class.uniqueId47
+│   │           │       ├── WeeklyApplication_HiltComponents$FragmentC$Builder.class.uniqueId20
+│   │           │       ├── WeeklyApplication_HiltComponents$FragmentCBuilderModule.class.uniqueId33
+│   │           │       ├── WeeklyApplication_HiltComponents$FragmentC.class.uniqueId6
+│   │           │       ├── WeeklyApplication_HiltComponents$ServiceC$Builder.class.uniqueId28
+│   │           │       ├── WeeklyApplication_HiltComponents$ServiceCBuilderModule.class.uniqueId9
+│   │           │       ├── WeeklyApplication_HiltComponents$ServiceC.class.uniqueId17
+│   │           │       ├── WeeklyApplication_HiltComponents$SingletonC.class.uniqueId19
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewC$Builder.class.uniqueId4
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewCBuilderModule.class.uniqueId46
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewC.class.uniqueId44
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewModelC$Builder.class.uniqueId48
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewModelCBuilderModule.class.uniqueId7
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewModelC.class.uniqueId8
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewWithFragmentC$Builder.class.uniqueId37
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewWithFragmentCBuilderModule.class.uniqueId40
+│   │           │       ├── WeeklyApplication_HiltComponents$ViewWithFragmentC.class.uniqueId22
+│   │           │       ├── WeeklyApplication_HiltComponents.class.uniqueId43
+│   │           │       └── WeeklyApplication_HiltComponents.java.uniqueId36
+│   │           └── previous-compilation-data.bin
+│   ├── build.gradle.kts
+│   ├── data
+│   │   └── local
+│   │       └── entities
+│   ├── data.local.entities
+│   ├── proguard-rules.pro
+│   ├── sampledata
+│   └── src
+│       ├── androidTest
+│       │   └── java
+│       │       └── com
+│       │           └── example
+│       │               └── weekly
+│       │                   └── ExampleInstrumentedTest.java
+│       ├── main
+│       │   ├── AndroidManifest.xml
+│       │   ├── java
+│       │   │   └── com
+│       │   │       └── example
+│       │   │           └── weekly
+│       │   │               ├── data
+│       │   │               │   ├── local
+│       │   │               │   │   ├── AppDatabase.java
+│       │   │               │   │   ├── Converters.java
+│       │   │               │   │   ├── dao
+│       │   │               │   │   │   ├── CategoryDao.java
+│       │   │               │   │   │   ├── EventDao.java
+│       │   │               │   │   │   └── TaskDao.java
+│       │   │               │   │   └── entities
+│       │   │               │   │       ├── CategoryEntity.java
+│       │   │               │   │       ├── EventEntity.java
+│       │   │               │   │       └── TaskEntity.java
+│       │   │               │   ├── mappers
+│       │   │               │   │   ├── EventMapper.java
+│       │   │               │   │   └── TaskMapper.java
+│       │   │               │   └── repositories
+│       │   │               │       ├── RoomEventRepository.java
+│       │   │               │       └── RoomTaskRepository.java
+│       │   │               ├── di
+│       │   │               │   └── DataModule.java
+│       │   │               ├── MainActivity.java
+│       │   │               ├── ui
+│       │   │               │   ├── adapters
+│       │   │               │   │   ├── CategoryAdapter.java
+│       │   │               │   │   ├── DayAdapter.java
+│       │   │               │   │   └── TaskAdapter.java
+│       │   │               │   ├── dialogs
+│       │   │               │   │   └── AddTaskDialogFragment.java
+│       │   │               │   ├── models
+│       │   │               │   │   └── DayPlan.java
+│       │   │               │   ├── usecases
+│       │   │               │   │   └── ProjectWeekUseCase.java
+│       │   │               │   ├── utils
+│       │   │               │   │   └── TimelineMapper.java
+│       │   │               │   ├── viewmodels
+│       │   │               │   │   └── MainViewModel.java
+│       │   │               │   └── views
+│       │   │               │       └── TimelineBackgroundView.java
+│       │   │               └── WeeklyApplication.java
+│       │   └── res
+│       │       ├── drawable
+│       │       │   ├── bg_category_selected.xml
+│       │       │   ├── bg_circle.xml
+│       │       │   ├── bg_dialog_rounded.xml
+│       │       │   ├── bg_timeline_block_high.xml
+│       │       │   ├── bg_timeline_block_low.xml
+│       │       │   ├── bg_timeline_block_medium.xml
+│       │       │   ├── ic_add.xml
+│       │       │   ├── ic_check.xml
+│       │       │   ├── ic_chevron_down.xml
+│       │       │   ├── ic_edit.xml
+│       │       │   ├── ic_launcher_background.xml
+│       │       │   ├── ic_launcher_foreground.xml
+│       │       │   └── ic_priority_high.xml
+│       │       ├── layout
+│       │       │   ├── activity_main.xml
+│       │       │   ├── dialog_task_options.xml
+│       │       │   ├── item_category_picker.xml
+│       │       │   ├── item_day.xml
+│       │       │   ├── item_task.xml
+│       │       │   ├── item_timeline_block.xml
+│       │       │   └── layout_add_task.xml
+│       │       ├── mipmap-anydpi-v26
+│       │       │   ├── ic_launcher_round.xml
+│       │       │   └── ic_launcher.xml
+│       │       ├── mipmap-hdpi
+│       │       │   ├── ic_launcher_round.webp
+│       │       │   └── ic_launcher.webp
+│       │       ├── mipmap-mdpi
+│       │       │   ├── ic_launcher_round.webp
+│       │       │   └── ic_launcher.webp
+│       │       ├── mipmap-xhdpi
+│       │       │   ├── ic_launcher_round.webp
+│       │       │   └── ic_launcher.webp
+│       │       ├── mipmap-xxhdpi
+│       │       │   ├── ic_launcher_round.webp
+│       │       │   └── ic_launcher.webp
+│       │       ├── mipmap-xxxhdpi
+│       │       │   ├── ic_launcher_round.webp
+│       │       │   └── ic_launcher.webp
+│       │       ├── values
+│       │       │   ├── colors.xml
+│       │       │   ├── strings.xml
+│       │       │   └── themes.xml
+│       │       ├── values-night
+│       │       │   └── themes.xml
+│       │       └── xml
+│       │           ├── backup_rules.xml
+│       │           └── data_extraction_rules.xml
+│       └── test
+│           └── java
+│               └── com
+│                   └── example
+│                       └── weekly
+│                           └── ExampleUnitTest.java
+├── build
+│   └── reports
+│       └── problems
+│           └── problems-report.html
+├── build.gradle.kts
+├── domain
+│   ├── build
+│   │   ├── classes
+│   │   │   └── java
+│   │   │       └── main
+│   │   │           └── com
+│   │   │               └── example
+│   │   │                   └── weekly
+│   │   │                       └── domain
+│   │   │                           ├── CollisionDetector.class
+│   │   │                           ├── Event.class
+│   │   │                           ├── EventRepository.class
+│   │   │                           ├── HeatmapService$DensityLevel.class
+│   │   │                           ├── HeatmapService$DensityResult.class
+│   │   │                           ├── HeatmapService.class
+│   │   │                           ├── MyClass.class
+│   │   │                           ├── SpleetEngine.class
+│   │   │                           ├── Task$Priority.class
+│   │   │                           ├── Task.class
+│   │   │                           ├── TaskRepository.class
+│   │   │                           ├── TimeSlot.class
+│   │   │                           └── WeekTemplate.class
+│   │   ├── generated
+│   │   │   └── sources
+│   │   │       ├── annotationProcessor
+│   │   │       │   └── java
+│   │   │       │       └── main
+│   │   │       └── headers
+│   │   │           └── java
+│   │   │               └── main
+│   │   ├── libs
+│   │   │   └── domain.jar
+│   │   └── tmp
+│   │       ├── compileJava
+│   │       │   ├── compileTransaction
+│   │       │   │   ├── backup-dir
+│   │       │   │   └── stash-dir
+│   │       │   │       ├── CollisionDetector.class.uniqueId2
+│   │       │   │       ├── HeatmapService$DensityLevel.class.uniqueId7
+│   │       │   │       ├── HeatmapService$DensityResult.class.uniqueId3
+│   │       │   │       ├── HeatmapService.class.uniqueId4
+│   │       │   │       ├── SpleetEngine.class.uniqueId8
+│   │       │   │       ├── Task$Priority.class.uniqueId5
+│   │       │   │       ├── Task.class.uniqueId0
+│   │       │   │       ├── TaskRepository.class.uniqueId1
+│   │       │   │       └── WeekTemplate.class.uniqueId6
+│   │       │   └── previous-compilation-data.bin
+│   │       └── jar
+│   │           └── MANIFEST.MF
+│   ├── build.gradle.kts
+│   ├── REPORT_STATUS.md
+│   └── src
+│       └── main
+│           └── java
+│               └── com
+│                   └── example
+│                       └── weekly
+│                           └── domain
+│                               ├── CollisionDetector.java
+│                               ├── Event.java
+│                               ├── EventRepository.java
+│                               ├── HeatmapService.java
+│                               ├── MyClass.java
+│                               ├── SpleetEngine.java
+│                               ├── Task.java
+│                               ├── TaskRepository.java
+│                               ├── TimeSlot.java
+│                               └── WeekTemplate.java
+├── estructura
+├── gradle
+│   ├── gradle-daemon-jvm.properties
+│   ├── libs.versions.toml
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── local.properties
+├── settings.gradle.kts
+├── Weekly2.jpeg
+├── Weekly3.jpeg
+├── Weekly4.jpeg
+└── Weekly.jpeg
+
+498 directories, 1055 files

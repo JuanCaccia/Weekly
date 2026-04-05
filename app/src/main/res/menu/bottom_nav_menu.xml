@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_spleet"
+        android:icon="@drawable/ic_layers"
+        android:title="Spleet" />
+    <item
+        android:id="@+id/nav_remains"
+        android:icon="@drawable/ic_priority_high"
+        android:title="Pendientes" />
+    <item
+        android:id="@+id/nav_week"
+        android:icon="@drawable/ic_check"
+        android:title="Semana" />
+    <item
+        android:id="@+id/nav_progress"
+        android:icon="@drawable/ic_calendar"
+        android:title="Calendario" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Ajustes" />
+</menu>

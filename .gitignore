@@ -1,0 +1,26 @@
+git c# Gradle files
+.gradle/
+build/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# Android Studio files
+local.properties
+.cxx/
+.externalNativeBuild/
+captures/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Built artifacts
+*.apk
+*.aar
+*.jar
+*.bundle
