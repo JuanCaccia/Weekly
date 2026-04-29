@@ -93,7 +93,7 @@ public class SpleetTaskAdapter extends ListAdapter<SpleetTaskAdapter.SpleetItem,
 
     static class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView title, time, priorityLabel;
-        View indicator;
+        View indicator, dragHandle;
 
         public TaskViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -101,11 +101,17 @@ public class SpleetTaskAdapter extends ListAdapter<SpleetTaskAdapter.SpleetItem,
             time = itemView.findViewById(R.id.textTaskTime);
             priorityLabel = itemView.findViewById(R.id.textPriorityLabel);
             indicator = itemView.findViewById(R.id.priorityIndicator);
+            dragHandle = itemView.findViewById(R.id.imgDragHandle);
             itemView.findViewById(R.id.checkCompleted).setVisibility(View.GONE);
         }
 
         public void bind(SpleetTask task, OnSpleetInteractionListener listener) {
             title.setText(task.title);
+            
+            if (dragHandle != null) {
+                dragHandle.setVisibility(View.GONE);
+            }
+
             if (task.hasTimeBlock && task.startTime != null && task.endTime != null) {
                 time.setVisibility(View.VISIBLE);
                 time.setText(task.startTime.format(TIME_FORMATTER) + " - " + task.endTime.format(TIME_FORMATTER));
@@ -123,17 +129,18 @@ public class SpleetTaskAdapter extends ListAdapter<SpleetTaskAdapter.SpleetItem,
                 priorityLabel.setBackgroundColor(color);
                 priorityLabel.setText(priorityName);
             } else {
-                // Cabecera para EVENTOS
                 priorityLabel.setVisibility(View.VISIBLE);
-                priorityLabel.setBackgroundColor(0xFFBDBDBD); // Gris
-                priorityLabel.setText("EVENTO");
+                if (task.isImportant) {
+                    priorityLabel.setBackgroundColor(0xFFFFD700); // Dorado
+                    priorityLabel.setText("EVENTO IMP.");
+                } else {
+                    priorityLabel.setBackgroundColor(0xFFBDBDBD); // Gris
+                    priorityLabel.setText("EVENTO");
+                }
             }
 
             itemView.setOnClickListener(v -> listener.onEdit(task));
-            itemView.setOnLongClickListener(v -> {
-                listener.onDelete(task);
-                return true;
-            });
+            itemView.setOnLongClickListener(null);
         }
 
         private int getPriorityColor(Priority priority, View view) {

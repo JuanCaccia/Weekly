@@ -26,5 +26,8 @@ public class SpleetTaskEntity {
     public String endTime;
     public Integer dayOfWeek;
     
+    public boolean isEvent;
+    public boolean isImportant;
+    
     public Long spleetHeaderId;
 }

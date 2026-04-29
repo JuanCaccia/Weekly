@@ -7,7 +7,6 @@ import com.example.weekly.data.local.dao.TaskDao;
 import com.example.weekly.data.local.dao.TaskReminderDao;
 import com.example.weekly.data.local.entities.TaskEntity;
 import com.example.weekly.data.local.entities.TaskReminderEntity;
-import com.example.weekly.data.local.entities.TaskWithReminders;
 import com.example.weekly.data.mappers.TaskMapper;
 import com.example.weekly.domain.Task;
 import com.example.weekly.domain.TaskReminder;
@@ -32,10 +31,18 @@ public class RoomTaskRepository implements TaskRepository {
 
     @Override
     public Task save(Task task) {
+        // Lógica de Drag & Drop: Si pasa de no tener horario a tener uno, duración por defecto 60 min.
+        if (task.getStartTime() != null && (task.getDuracionMinutos() == null || task.getDuracionMinutos() == 0)) {
+            task.setDuracionMinutos(60);
+            task.setHasTimeBlock(true);
+            if (task.getEndTime() == null) {
+                task.setEndTime(task.getStartTime().plusMinutes(60));
+            }
+        }
+
         TaskEntity entity = TaskMapper.toEntity(task);
         if (entity.id == null || entity.id == 0) {
-            long id = taskDao.insertTask(entity);
-            task.id = id;
+            task.id = taskDao.insertTask(entity);
         } else {
             taskDao.updateTask(entity);
         }

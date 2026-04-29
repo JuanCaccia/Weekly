@@ -16,6 +16,8 @@ public class SpleetTask implements TimeSlot {
     public LocalTime endTime;
     public Integer dayOfWeek; // 1 (Lunes) a 7 (Domingo)
     public Long spleetHeaderId;
+    public boolean isEvent;
+    public boolean isImportant;
 
     public SpleetTask() {}
 
@@ -29,6 +31,8 @@ public class SpleetTask implements TimeSlot {
             this.endTime = other.endTime;
             this.dayOfWeek = other.dayOfWeek;
             this.spleetHeaderId = other.spleetHeaderId;
+            this.isEvent = other.isEvent;
+            this.isImportant = other.isImportant;
         }
     }
 
@@ -48,6 +52,8 @@ public class SpleetTask implements TimeSlot {
         if (o == null || getClass() != o.getClass()) return false;
         SpleetTask that = (SpleetTask) o;
         return hasTimeBlock == that.hasTimeBlock &&
+                isEvent == that.isEvent &&
+                isImportant == that.isImportant &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(title, that.title) &&
                 priority == that.priority &&
@@ -59,6 +65,6 @@ public class SpleetTask implements TimeSlot {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, priority, hasTimeBlock, startTime, endTime, dayOfWeek, spleetHeaderId);
+        return Objects.hash(id, title, priority, hasTimeBlock, startTime, endTime, dayOfWeek, spleetHeaderId, isEvent, isImportant);
     }
 }

@@ -41,7 +41,7 @@ public interface TaskDao {
     @Query("SELECT * FROM tasks WHERE isTemplate = 0 AND deadline BETWEEN :startDate AND :endDate")
     androidx.lifecycle.LiveData<List<TaskWithReminders>> getTasksBetweenDatesLive(String startDate, String endDate);
 
-    @Query("SELECT * FROM tasks WHERE isCompleted = 0")
+    @Query("SELECT * FROM tasks WHERE isCompleted = 0 AND isEvent = 0")
     List<TaskEntity> getPendingTasks();
 
     @Query("SELECT * FROM tasks WHERE isTemplate = 1")
@@ -50,14 +50,14 @@ public interface TaskDao {
     @Query("SELECT * FROM tasks WHERE isTemplate = 1 AND dayOfWeek = :weekTypeId")
     List<TaskEntity> findTemplatesByWeekType(Long weekTypeId);
 
-    @Query("SELECT * FROM tasks WHERE isTemplate = 0 AND isCompleted = 0 AND priority IS NOT NULL " +
+    @Query("SELECT * FROM tasks WHERE isTemplate = 0 AND isCompleted = 0 AND isEvent = 0 " +
            "ORDER BY " +
            "CASE priority WHEN 'HIGH' THEN 1 WHEN 'MEDIUM' THEN 2 WHEN 'LOW' THEN 3 ELSE 4 END ASC, " +
            "deadline ASC")
     List<TaskEntity> findRemains();
 
     @Transaction
-    @Query("SELECT * FROM tasks WHERE isTemplate = 0 AND isCompleted = 0 AND priority IS NOT NULL " +
+    @Query("SELECT * FROM tasks WHERE isTemplate = 0 AND isCompleted = 0 AND isEvent = 0 " +
            "ORDER BY " +
            "CASE priority WHEN 'HIGH' THEN 1 WHEN 'MEDIUM' THEN 2 WHEN 'LOW' THEN 3 ELSE 4 END ASC, " +
            "deadline ASC")

@@ -25,12 +25,22 @@ public class SpleetEngine {
 
         for (SpleetTask spleetTask : template) {
             Task task = new Task();
-            task.titulo = spleetTask.title;
-            task.prioridad = spleetTask.priority;
-            task.tieneBloqueTiempo = spleetTask.hasTimeBlock;
-            task.horaInicio = spleetTask.startTime;
-            task.horaFin = spleetTask.endTime;
-            task.dia = spleetTask.dayOfWeek;
+            task.setTitle(spleetTask.title);
+            
+            // Mapeo correcto de tipo y prioridad
+            task.setEvent(spleetTask.isEvent);
+            if (spleetTask.isEvent) {
+                task.setPriority(null);
+                task.setImportant(spleetTask.isImportant);
+            } else {
+                task.setPriority(spleetTask.priority != null ? spleetTask.priority : Priority.MEDIUM);
+                task.setImportant(false); // Las tareas no usan el flag isImportant en este modelo
+            }
+
+            task.setHasTimeBlock(spleetTask.hasTimeBlock);
+            task.setStartTime(spleetTask.startTime);
+            task.setEndTime(spleetTask.endTime);
+            task.setDayOfWeek(spleetTask.dayOfWeek);
             
             // Calcular fecha exacta: targetMonday + (dayOfWeek - 1)
             int daysToAdd = (spleetTask.dayOfWeek != null) ? (spleetTask.dayOfWeek - 1) : 0;

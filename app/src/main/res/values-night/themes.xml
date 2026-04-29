@@ -15,6 +15,14 @@
         <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
     </style>
 
+    <style name="Theme.Weekly" parent="Base.Theme.Weekly" />
+
+    <style name="Theme.Weekly.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenBackground">@color/md_theme_light_primary</item>
+        <item name="postSplashScreenTheme">@style/Theme.Weekly</item>
+    </style>
+
     <style name="TopDialogStyle" parent="Theme.Material3.DayNight.Dialog">
         <item name="colorPrimary">@color/md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>

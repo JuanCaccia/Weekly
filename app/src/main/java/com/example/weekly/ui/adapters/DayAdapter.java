@@ -2,8 +2,11 @@ package com.example.weekly.ui.adapters;
 
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
 import android.transition.TransitionManager;
@@ -62,6 +65,7 @@ public class DayAdapter extends ListAdapter<DayPlan, RecyclerView.ViewHolder> {
         void onTaskArchive(Task task);
         void onRescheduleAllRemains();
         void onArchiveAllRemains();
+        void onTaskDropped(Long taskId, java.time.LocalTime newStartTime, LocalDate date);
     }
 
     public DayAdapter(OnDayPlanInteractionListener listener) {
@@ -196,6 +200,7 @@ public class DayAdapter extends ListAdapter<DayPlan, RecyclerView.ViewHolder> {
         private final ConstraintLayout timelineContainer;
         private final TimelineBackgroundView timelineBackground;
         private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        private float lastTouchX, lastTouchY;
 
         public DayViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -217,6 +222,38 @@ public class DayAdapter extends ListAdapter<DayPlan, RecyclerView.ViewHolder> {
             textDayName.setText(plan.getDayDisplayName());
             textDate.setText(plan.getDate().format(DateTimeFormatter.ofPattern("d/M")));
             
+            // Configurar el drop target para Drag & Drop
+            List<TimelineBackgroundView.TaskSlot> taskSlots = plan.getTasks().stream()
+                    .filter(t -> t.isHasTimeBlock() && t.getStartTime() != null && t.getEndTime() != null)
+                    .map(t -> new TimelineBackgroundView.TaskSlot(t.id, t.getStartTime(), t.getEndTime()))
+                    .collect(Collectors.toList());
+            timelineBackground.setExistingTasks(taskSlots);
+
+            timelineBackground.setOnTimeSlotDroppedListener((time, event) -> {
+                android.content.ClipData clipData = event.getClipData();
+                if (clipData != null && clipData.getItemCount() > 0) {
+                    String rawInfo = clipData.getItemAt(0).getText().toString();
+                    try {
+                        // El formato es "ID|DURACION"
+                        Long taskId;
+                        if (rawInfo != null && rawInfo.contains("|")) {
+                            taskId = Long.parseLong(rawInfo.split("\\|")[0]);
+                        } else if (rawInfo != null) {
+                            taskId = Long.parseLong(rawInfo);
+                        } else {
+                            return;
+                        }
+                        
+                        listener.onTaskDropped(taskId, time, plan.getDate());
+                        
+                        // Feedback visual: pequeño parpadeo
+                        dayHeader.animate().alpha(0.5f).setDuration(100).withEndAction(() -> 
+                            dayHeader.animate().alpha(1.0f).setDuration(100).start()
+                        ).start();
+                    } catch (NumberFormatException ignored) {}
+                }
+            });
+
             int densityColor = getDensityColor(plan.getDensityLevel());
             dayHeader.setBackgroundColor(densityColor);
 
@@ -312,10 +349,54 @@ public class DayAdapter extends ListAdapter<DayPlan, RecyclerView.ViewHolder> {
             TextView time = card.findViewById(R.id.textTaskTime);
             CheckBox check = card.findViewById(R.id.checkCompleted);
             View indicator = card.findViewById(R.id.priorityIndicator);
+            View dragHandle = card.findViewById(R.id.imgDragHandle);
 
             title.setText(task.getTitle());
             time.setText(String.format("%s - %s", task.getStartTime().format(timeFormatter), task.getEndTime().format(timeFormatter)));
             
+            // Ocultar el icono de drag handle ya que ahora se usará long press
+            if (dragHandle != null) {
+                dragHandle.setVisibility(View.GONE);
+            }
+
+            card.setOnTouchListener((v, event) -> {
+                if (event.getAction() == android.view.MotionEvent.ACTION_DOWN) {
+                    lastTouchX = event.getX();
+                    lastTouchY = event.getY();
+                }
+                return false;
+            });
+
+            card.setOnLongClickListener(v -> {
+                v.performHapticFeedback(android.view.HapticFeedbackConstants.LONG_PRESS);
+                
+                long durationMinutes = java.time.Duration.between(task.getStartTime(), task.getEndTime()).toMinutes();
+                String dragInfoStr = task.id + "|" + durationMinutes;
+                android.content.ClipData data = android.content.ClipData.newPlainText("task_drag_data", dragInfoStr);
+
+                // Sombra personalizada que emana del dedo
+                android.view.View.DragShadowBuilder shadowBuilder = new android.view.View.DragShadowBuilder(card) {
+                    @Override
+                    public void onDrawShadow(Canvas canvas) {
+                        super.onDrawShadow(canvas);
+                        Paint shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+                        RadialGradient gradient = new RadialGradient(
+                            lastTouchX, lastTouchY, 
+                            Math.max(card.getWidth(), card.getHeight()) * 1.2f,
+                            new int[]{0x66000000, 0x00000000},
+                            null, Shader.TileMode.CLAMP
+                        );
+                        shadowPaint.setShader(gradient);
+                        canvas.drawRoundRect(0, 0, card.getWidth(), card.getHeight(), 
+                            card.getRadius(), card.getRadius(), shadowPaint);
+                    }
+                };
+                
+                long[] localData = new long[]{task.id, durationMinutes, (long) lastTouchY};
+                card.startDragAndDrop(data, shadowBuilder, localData, 0);
+                return true;
+            });
+
             boolean isDarkMode = (itemView.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
             int emptyDayColor = isDarkMode ? 0xFF1C1A24 : Color.WHITE;
             card.setCardBackgroundColor(ColorStateList.valueOf(emptyDayColor));

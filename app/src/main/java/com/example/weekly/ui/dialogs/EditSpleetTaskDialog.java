@@ -90,6 +90,7 @@ public class EditSpleetTaskDialog extends BottomSheetDialogFragment {
         ChipGroup chipGroupDay = view.findViewById(R.id.chipGroupDay);
         
         SwitchMaterial switchTimeBlock = view.findViewById(R.id.switchTimeBlock);
+        SwitchMaterial switchImportant = view.findViewById(R.id.switchImportant);
         TextInputLayout layoutStartTime = view.findViewById(R.id.layoutStartTime);
         TextInputLayout layoutEndTime = view.findViewById(R.id.layoutEndTime);
         Button btnStartTime = view.findViewById(R.id.btnStartTime);
@@ -110,9 +111,12 @@ public class EditSpleetTaskDialog extends BottomSheetDialogFragment {
                 if (checkedId == R.id.btnTypeEvent) {
                     textPriorityHeader.setVisibility(View.GONE);
                     scrollPriority.setVisibility(View.GONE);
+                    switchImportant.setVisibility(View.VISIBLE);
                 } else {
                     textPriorityHeader.setVisibility(View.VISIBLE);
                     scrollPriority.setVisibility(View.VISIBLE);
+                    switchImportant.setVisibility(View.GONE);
+                    switchImportant.setChecked(false);
                 }
             }
         });
@@ -160,9 +164,12 @@ public class EditSpleetTaskDialog extends BottomSheetDialogFragment {
 
                 if (editingTask.priority == null) {
                     toggleGroup.check(R.id.btnTypeEvent);
+                    switchImportant.setVisibility(View.VISIBLE);
+                    switchImportant.setChecked(editingTask.isImportant);
                 } else {
                     toggleGroup.check(R.id.btnTypeTask);
                     selectPriorityChip(chipGroupPriority, editingTask.priority);
+                    switchImportant.setVisibility(View.GONE);
                 }
             }
         } else {
@@ -191,14 +198,19 @@ public class EditSpleetTaskDialog extends BottomSheetDialogFragment {
 
             boolean isEvent = toggleGroup.getCheckedButtonId() == R.id.btnTypeEvent;
             Priority priority = null;
+            boolean isImportant = false;
             if (!isEvent) {
                 priority = getSelectedPriority(chipGroupPriority);
+            } else {
+                isImportant = switchImportant.isChecked();
             }
 
             SpleetTask task = editingTask != null ? editingTask : new SpleetTask();
             task.title = title;
             task.dayOfWeek = selectedDay;
             task.priority = priority;
+            task.isEvent = isEvent;
+            task.isImportant = isImportant;
             task.hasTimeBlock = switchTimeBlock.isChecked();
             if (task.hasTimeBlock) {
                 task.startTime = startTime;

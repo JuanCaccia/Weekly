@@ -257,6 +257,56 @@ public class MainViewModel extends ViewModel {
         }
     }
 
+    public void onTaskDropped(Long taskId, java.time.LocalTime newStartTime, java.time.LocalDate newDate) {
+        executorService.execute(() -> {
+            taskRepository.findById(taskId).ifPresent(task -> {
+                long durationMinutes = 60;
+                if (task.getStartTime() != null && task.getEndTime() != null) {
+                    durationMinutes = java.time.Duration.between(task.getStartTime(), task.getEndTime()).toMinutes();
+                    if (durationMinutes <= 0) durationMinutes = 60;
+                } else if (task.getDuracionMinutos() != null) {
+                    durationMinutes = task.getDuracionMinutos();
+                }
+
+                java.time.LocalTime adjustedStartTime = newStartTime;
+                java.time.LocalTime adjustedEndTime = adjustedStartTime.plusMinutes(durationMinutes);
+
+                // Obtener tareas del día para verificar colisiones
+                List<Task> dayTasks = taskRepository.findByDate(newDate);
+                
+                // Verificar si hay una colisión en el lugar del drop.
+                // Si la hay, cancelamos el movimiento para evitar que la tarea se oculte o desplace otras inesperadamente.
+                boolean finalCollision = false;
+                for (Task existing : dayTasks) {
+                    if (Objects.equals(existing.id, taskId) || !existing.isHasTimeBlock()) continue;
+                    
+                    if (adjustedStartTime.isBefore(existing.getEndTime()) && adjustedEndTime.isAfter(existing.getStartTime())) {
+                        finalCollision = true;
+                        break;
+                    }
+                }
+
+                // Si hay colisión, no guardamos cambios (la tarea vuelve a su posición original al recargar el LiveData)
+                if (finalCollision) {
+                    // Opcional: Podrías enviar un mensaje de error a la UI
+                    // _errorMessage.postValue("No hay espacio suficiente para mover la actividad aquí");
+                    return;
+                }
+
+                // Si llegamos aquí es porque el espacio está libre
+                task.setStartTime(adjustedStartTime);
+                task.setEndTime(adjustedEndTime);
+                task.setDeadline(java.time.LocalDateTime.of(newDate, adjustedStartTime));
+                task.setHasTimeBlock(true);
+
+                Task savedTask = taskRepository.save(task);
+                if (savedTask != null) {
+                    taskAlarmScheduler.scheduleTaskAlarm(savedTask);
+                }
+            });
+        });
+    }
+
     @Override
     protected void onCleared() {
         super.onCleared();

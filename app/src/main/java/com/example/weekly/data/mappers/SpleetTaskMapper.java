@@ -18,6 +18,8 @@ public class SpleetTaskMapper {
         task.endTime = entity.endTime != null ? LocalTime.parse(entity.endTime) : null;
         task.dayOfWeek = entity.dayOfWeek;
         task.spleetHeaderId = entity.spleetHeaderId;
+        task.isEvent = entity.isEvent;
+        task.isImportant = entity.isImportant;
         return task;
     }
 
@@ -32,6 +34,8 @@ public class SpleetTaskMapper {
         entity.endTime = domain.endTime != null ? domain.endTime.toString() : null;
         entity.dayOfWeek = domain.dayOfWeek;
         entity.spleetHeaderId = domain.spleetHeaderId;
+        entity.isEvent = domain.isEvent;
+        entity.isImportant = domain.isImportant;
         return entity;
     }
 }

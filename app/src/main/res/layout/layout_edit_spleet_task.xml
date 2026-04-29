@@ -82,6 +82,14 @@
         android:checked="true"
         android:text="Bloque de tiempo" />
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switchImportant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Evento Importante"
+        android:visibility="gone" />
+
     <LinearLayout
         android:id="@+id/layoutTimePickers"
         android:layout_width="match_parent"

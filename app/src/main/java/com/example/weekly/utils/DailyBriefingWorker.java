@@ -52,45 +52,57 @@ public class DailyBriefingWorker extends Worker {
     @Override
     public Result doWork() {
         LocalDate today = LocalDate.now();
-        List<Task> tasksToday = repository.findByDate(today);
+        LocalDate startRange = today.minusYears(1); // Ampliamos para capturar todos los pendientes antiguos
+        LocalDate endRange = today.plusWeeks(2);    // 2 semanas adelante para "Próximamente"
 
-        // 1. Filtrar tareas no completadas de hoy
-        List<Task> pendingToday = tasksToday.stream()
+        // Obtener actividades
+        List<Task> allTasksInRange = repository.findTasksBetweenDates(startRange, endRange);
+
+        // 1. Filtrar actividades de hoy
+        List<Task> activitiesToday = allTasksInRange.stream()
+                .filter(t -> t.getDeadline() != null && t.getDeadline().toLocalDate().equals(today))
                 .filter(t -> !t.isCompletada())
                 .collect(Collectors.toList());
 
-        // 2. Buscar tareas "ignoradas" (pendientes de días anteriores)
-        List<Task> allPending = repository.findPending();
-        List<Task> ignoredTasks = allPending.stream()
+        // 2. Tareas pendientes (solo TAREAS, no eventos, de días anteriores)
+        List<Task> pendingTasks = allTasksInRange.stream()
                 .filter(t -> t.getDeadline() != null && t.getDeadline().toLocalDate().isBefore(today))
+                .filter(t -> !t.isCompletada() && !t.isEvent())
                 .collect(Collectors.toList());
 
-        if (pendingToday.isEmpty() && ignoredTasks.isEmpty()) {
+        // 3. Actividades futuras (mañana hasta 2 semanas, solo eventos o tareas importantes)
+        List<Task> upcomingActivities = allTasksInRange.stream()
+                .filter(t -> t.getDeadline() != null && t.getDeadline().toLocalDate().isAfter(today))
+                .filter(t -> !t.isCompletada())
+                .filter(t -> t.isEvent() || t.isImportant())
+                .collect(Collectors.toList());
+
+        if (activitiesToday.isEmpty() && pendingTasks.isEmpty() && upcomingActivities.isEmpty()) {
             return Result.success();
         }
 
-        // 3. Resumen para la vista contraída
-        long eventsToday = pendingToday.stream().filter(Task::isEvent).count();
-        long tasksCountToday = pendingToday.size() - eventsToday;
+        // 4. Resumen para la vista contraída
+        long eventsToday = activitiesToday.stream().filter(Task::isEvent).count();
+        long tasksCountToday = activitiesToday.size() - eventsToday;
         
         String summary;
         if (eventsToday > 0 && tasksCountToday > 0) {
-            summary = String.format("Tienes %d tareas y %d eventos para hoy.", tasksCountToday, eventsToday);
+            summary = String.format("Hoy: %d tareas y %d eventos", tasksCountToday, eventsToday);
         } else if (eventsToday > 0) {
-            summary = String.format("Tienes %d eventos para hoy.", eventsToday);
+            summary = String.format("Hoy: %d eventos", eventsToday);
         } else if (tasksCountToday > 0) {
-            summary = String.format("Tienes %d tareas para hoy.", tasksCountToday);
+            summary = String.format("Hoy: %d tareas", tasksCountToday);
         } else {
-            summary = "No tienes actividades nuevas para hoy.";
+            summary = "No hay actividades para hoy, pero revisa tus pendientes";
         }
 
-        // 4. Detalle para la vista expandida (más "linda")
+        // 5. Detalle para la vista expandida
         StringBuilder detail = new StringBuilder();
         
-        if (!pendingToday.isEmpty()) {
-            detail.append("📅 PARA HOY:\n");
-            for (Task task : pendingToday) {
-                detail.append(task.isEvent() ? "🔹 " : "🔸 ");
+        if (!activitiesToday.isEmpty()) {
+            detail.append("Para hoy:\n");
+            for (Task task : activitiesToday) {
+                detail.append("- ");
                 if (task.isHasTimeBlock() && task.getStartTime() != null) {
                     detail.append("[").append(task.getStartTime().format(timeFormatter)).append("] ");
                 }
@@ -98,29 +110,24 @@ public class DailyBriefingWorker extends Worker {
             }
         }
 
-        if (!ignoredTasks.isEmpty()) {
+        if (!pendingTasks.isEmpty()) {
             if (detail.length() > 0) detail.append("\n");
-            long ignoredEvents = ignoredTasks.stream().filter(Task::isEvent).count();
-            long ignoredOnlyTasks = ignoredTasks.size() - ignoredEvents;
-            
-            detail.append("⚠️ PENDIENTES PASADOS:\n");
-            detail.append("Ignoraste ");
-            if (ignoredEvents > 0 && ignoredOnlyTasks > 0) {
-                detail.append(ignoredEvents).append(" eventos y ").append(ignoredOnlyTasks).append(" tareas");
-            } else if (ignoredEvents > 0) {
-                detail.append(ignoredEvents).append(" eventos");
-            } else {
-                detail.append(ignoredOnlyTasks).append(" tareas");
-            }
-            detail.append(" de días anteriores.\n");
-            
-            // Mostrar los primeros 3 para no saturar
-            ignoredTasks.stream().limit(3).forEach(t -> {
+            detail.append("Tareas pendientes:\n");
+            pendingTasks.stream().limit(3).forEach(t -> {
                 detail.append(" • ").append(t.getTitle()).append("\n");
             });
-            if (ignoredTasks.size() > 3) {
-                detail.append(" ... y ").append(ignoredTasks.size() - 3).append(" más");
+            if (pendingTasks.size() > 3) {
+                detail.append(" ... y ").append(pendingTasks.size() - 3).append(" más");
             }
+        }
+
+        if (!upcomingActivities.isEmpty()) {
+            if (detail.length() > 0) detail.append("\n");
+            detail.append("Próximamente:\n");
+            upcomingActivities.stream().limit(3).forEach(t -> {
+                String dateStr = t.getDeadline().format(DateTimeFormatter.ofPattern("dd/MM"));
+                detail.append(" • ").append(t.getTitle()).append(" (").append(dateStr).append(")\n");
+            });
         }
 
         showNotification(summary, detail.toString());
@@ -142,10 +149,10 @@ public class DailyBriefingWorker extends Worker {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), NotificationHelper.CHANNEL_DAILY_BRIEFING)
                 .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle("Tu resumen diario 📝")
+                .setContentTitle("Tu resumen diario")
                 .setContentText(summary)
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .setBigContentTitle("Resumen de Actividades")
+                        .setBigContentTitle("Resumen de actividades")
                         .bigText(bigText))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)

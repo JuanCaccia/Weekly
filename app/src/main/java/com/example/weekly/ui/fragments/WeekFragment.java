@@ -1,6 +1,7 @@
 package com.example.weekly.ui.fragments;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,102 @@ public class WeekFragment extends Fragment implements DayAdapter.OnDayPlanIntera
         return inflater.inflate(R.layout.fragment_week, container, false);
     }
 
+    // Configuración para Auto-Scroll durante Drag & Drop
+    private final android.os.Handler scrollHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+    private int scrollSpeed = 0;
+    private boolean isScrolling = false;
+
+    // Configuración para Navegación Horizontal durante Drag
+    private final android.os.Handler navHandler = new android.os.Handler(android.os.Looper.getMainLooper());
+    private Runnable navRunnable = null;
+    private int pendingNavDir = 0;
+    private static final int NAV_DELAY = 500;
+
+    private final Runnable scrollRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (scrollSpeed != 0 && rv != null) {
+                rv.scrollBy(0, scrollSpeed);
+                scrollHandler.postDelayed(this, 16);
+            } else {
+                isScrolling = false;
+            }
+        }
+    };
+
+    /**
+     * Procesa la ubicación del drag para determinar la velocidad del scroll.
+     * Centralizamos esto para poder llamarlo desde el Fragment o desde los hijos.
+     */
+    public void handleDragScroll(float rawY) {
+        if (rv == null) return;
+        
+        int[] location = new int[2];
+        rv.getLocationOnScreen(location);
+        int rvTop = location[1];
+        int rvHeight = rv.getHeight();
+        
+        // Coordenada Y relativa al RecyclerView
+        float relativeY = rawY - rvTop;
+        
+        int threshold = dpToPx(50); 
+        
+        int newSpeed = 0;
+        if (relativeY < threshold && relativeY > -dpToPx(100)) {
+            float intensity = (threshold - Math.max(0, relativeY)) / (float) threshold;
+            newSpeed = - (int) (intensity * dpToPx(30)) - dpToPx(5);
+        } else if (relativeY > rvHeight - threshold && relativeY < rvHeight + dpToPx(100)) {
+            float intensity = (relativeY - (rvHeight - threshold)) / (float) threshold;
+            newSpeed = (int) (intensity * dpToPx(30)) + dpToPx(5);
+        }
+        
+        scrollSpeed = newSpeed;
+        if (scrollSpeed != 0) {
+            if (!isScrolling) {
+                isScrolling = true;
+                scrollHandler.post(scrollRunnable);
+            }
+        } else {
+            isScrolling = false;
+            scrollHandler.removeCallbacks(scrollRunnable);
+        }
+    }
+
+    private void handleHorizontalNav(float x, int width) {
+        int threshold = dpToPx(40);
+        if (x < threshold) {
+            scheduleNav(-1);
+        } else if (x > width - threshold) {
+            scheduleNav(1);
+        } else {
+            cancelHorizontalNav();
+        }
+    }
+
+    private void scheduleNav(int direction) {
+        if (pendingNavDir == direction) return;
+        cancelHorizontalNav();
+        pendingNavDir = direction;
+        navRunnable = () -> {
+            if (direction == -1) viewModel.prevWeek();
+            else viewModel.nextWeek();
+            pendingNavDir = 0;
+        };
+        navHandler.postDelayed(navRunnable, NAV_DELAY);
+    }
+
+    private void cancelHorizontalNav() {
+        if (navRunnable != null) {
+            navHandler.removeCallbacks(navRunnable);
+            navRunnable = null;
+        }
+        pendingNavDir = 0;
+    }
+
+    private int dpToPx(int dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -53,13 +150,49 @@ public class WeekFragment extends Fragment implements DayAdapter.OnDayPlanIntera
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setAdapter(adapter);
 
+        // Detector de scroll en el contenedor raíz
+        view.setOnDragListener((v, event) -> {
+            if (event.getAction() == android.view.DragEvent.ACTION_DRAG_LOCATION) {
+                int[] loc = new int[2];
+                v.getLocationOnScreen(loc);
+                handleDragScroll(loc[1] + event.getY());
+                handleHorizontalNav(event.getX(), v.getWidth());
+            } else if (event.getAction() == android.view.DragEvent.ACTION_DRAG_ENDED || 
+                       event.getAction() == android.view.DragEvent.ACTION_DROP) {
+                scrollSpeed = 0;
+                isScrolling = false;
+                scrollHandler.removeCallbacks(scrollRunnable);
+                cancelHorizontalNav();
+            }
+            return false;
+        });
+
+        // El RecyclerView también debe procesar su propia área por si el evento no burbujea
+        rv.setOnDragListener((v, event) -> {
+            if (event.getAction() == android.view.DragEvent.ACTION_DRAG_LOCATION) {
+                int[] loc = new int[2];
+                v.getLocationOnScreen(loc);
+                handleDragScroll(loc[1] + event.getY());
+                
+                int[] rootLoc = new int[2];
+                view.getLocationOnScreen(rootLoc);
+                float rootX = (loc[0] + event.getX()) - rootLoc[0];
+                handleHorizontalNav(rootX, view.getWidth());
+            } else if (event.getAction() == android.view.DragEvent.ACTION_DRAG_ENDED || 
+                       event.getAction() == android.view.DragEvent.ACTION_DROP) {
+                cancelHorizontalNav();
+            }
+            return false;
+        });
+
         // Desactivar animaciones por defecto para que no interfieran con TransitionManager
         rv.setItemAnimator(null);
 
         viewModel.weekPlan.observe(getViewLifecycleOwner(), plan -> {
             if (plan != null) {
-                // Eliminamos el smoothScrollToPosition que causaba inconsistencia visual durante la expansión
-                adapter.submitList(plan);
+                // Al enviar la lista, evitamos el scroll automático si viene de un Drag & Drop
+                // Solo hacemos scroll si no estamos en medio de un proceso de arrastre
+                adapter.submitList(plan, null);
             }
         });
 
@@ -177,4 +310,9 @@ public class WeekFragment extends Fragment implements DayAdapter.OnDayPlanIntera
 
     @Override
     public void onArchiveAllRemains() {}
+
+    @Override
+    public void onTaskDropped(Long taskId, java.time.LocalTime newStartTime, LocalDate date) {
+        viewModel.onTaskDropped(taskId, newStartTime, date);
+    }
 }

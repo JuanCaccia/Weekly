@@ -1,7 +1,10 @@
 package com.example.weekly.domain;
 
 import androidx.lifecycle.LiveData;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.TemporalAdjusters;
 import java.util.List;
 import javax.inject.Inject;
 

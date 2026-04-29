@@ -1,11 +1,16 @@
 package com.example.weekly.ui.adapters;
 
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.util.TypedValue;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.HapticFeedbackConstants;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -63,13 +68,17 @@ public class TaskAdapter extends ListAdapter<Task, TaskAdapter.TaskViewHolder> {
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task task = getItem(position);
         holder.bind(task, listener, isRemainsMode);
+        
+        // El Drag & Drop desde la lista de pendientes ha sido desactivado a petición del usuario.
+        holder.imgDragHandle.setVisibility(View.GONE);
+        holder.imgDragHandle.setOnTouchListener(null);
     }
 
     static class TaskViewHolder extends RecyclerView.ViewHolder {
         TextView textTitle, textTime, textPriorityLabel, textOverdue, textDayOfWeek;
         CheckBox checkBox;
         View priorityIndicator, timeContainer;
-        ImageView imgCollisionAlert, imgBookmark, btnEditTask;
+        ImageView imgCollisionAlert, imgBookmark, btnEditTask, imgDragHandle;
         com.google.android.material.card.MaterialCardView cardTask;
         View rescheduleBadge;
 
@@ -88,6 +97,7 @@ public class TaskAdapter extends ListAdapter<Task, TaskAdapter.TaskViewHolder> {
             imgBookmark = itemView.findViewById(R.id.imgBookmark);
             rescheduleBadge = itemView.findViewById(R.id.rescheduleBadge);
             btnEditTask = itemView.findViewById(R.id.btnEditTask);
+            imgDragHandle = itemView.findViewById(R.id.imgDragHandle);
         }
 
         public void bind(Task task, OnTaskInteractionListener listener, boolean remainsMode) {
@@ -220,13 +230,6 @@ public class TaskAdapter extends ListAdapter<Task, TaskAdapter.TaskViewHolder> {
                 textPriorityLabel.setBackgroundColor(color);
                 textPriorityLabel.setVisibility(View.VISIBLE);
             }
-
-            itemView.setOnLongClickListener(v -> {
-                if (listener != null) {
-                    listener.onTaskDelete(task);
-                }
-                return true;
-            });
         }
 
         private int getPriorityColor(Priority priority) {
